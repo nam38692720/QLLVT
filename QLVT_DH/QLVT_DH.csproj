@@ -72,6 +72,12 @@
     <Compile Include="SimpleForm\frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </Compile>
+    <Compile Include="SimpleForm\frmKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SimpleForm\frmKho.Designer.cs">
+      <DependentUpon>frmKho.cs</DependentUpon>
+    </Compile>
     <Compile Include="SimpleForm\frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
