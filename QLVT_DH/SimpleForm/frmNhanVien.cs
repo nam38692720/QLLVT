@@ -55,7 +55,7 @@ namespace QLVT_DH.SimpleForm
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string statement = null;
-            if (undolist.Count != null) statement = undolist.Pop().ToString();
+            if (undolist.Count != 0) statement = undolist.Pop().ToString();
 
             if(statement == "EDIT")
             {
@@ -196,10 +196,12 @@ namespace QLVT_DH.SimpleForm
                             dateNgaySinh.Text + "#" + txtDiaChi.Text.Trim() + "#" + txtLuong.Text.Trim();
                     Console.WriteLine(NV_info);
                     maNV = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString();
-                    bdsNV.RemoveCurrent();
-                    btnUndo.Enabled = true;
                     undolist.Push(NV_info);
                     undolist.Push("DELETE");
+
+                    bdsNV.RemoveCurrent();
+                    btnUndo.Enabled = true;
+                    
 
 
                     Program.mlogin = Program.remotelogin;

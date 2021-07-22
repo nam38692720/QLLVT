@@ -33,11 +33,14 @@ namespace QLVT_DH
         public static String mHoten = "";
         public static int mChiNhanh = 0;
 
+        public static int maNV = 0;
+
         public static String control = "";
 
         // -- FORMS --
         public static frmDangNhap frmDangNhap;
         public static frmMain frmMain;
+        public static frmLapPhieu frmLapPhieu;
 
         public static BindingSource bds_dspm = new BindingSource();
 

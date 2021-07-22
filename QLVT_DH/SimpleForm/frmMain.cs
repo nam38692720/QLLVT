@@ -20,9 +20,9 @@ namespace QLVT_DH
             TENNV.Text = "Họ Tên: " + Program.mHoten;
             ROLE.Text = "Chức vụ: " + Program.mGroup;
         }
-        private XtraForm CheckExists(Type ftype)
+        private Form CheckExists(Type ftype)
         {
-            foreach (XtraForm f in this.MdiChildren)
+            foreach (Form f in this.MdiChildren)
                 if (f.GetType() == ftype)
                     return f;
             return null;
@@ -35,14 +35,14 @@ namespace QLVT_DH
 
         private void barButtonItem_ListKho_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //XtraForm form = this.CheckExists(typeof(frmKho));
-            //if (form != null) form.Activate();
-            //else
-            //{
-            //    frmKho frmKho = new frmKho();
-            //    frmKho.MdiParent = this;
-            //    frmKho.Show();
-            //}
+            Form form = this.CheckExists(typeof(frmKho));
+            if (form != null) form.Activate();
+            else
+            {
+                frmKho frmKho = new frmKho();
+                frmKho.MdiParent = this;
+                frmKho.Show();
+            }
         }
 
         private void barButtonItem_out_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -62,6 +62,19 @@ namespace QLVT_DH
                 frmNhanVien frmNhanVien = new frmNhanVien();
                 frmNhanVien.MdiParent = this;
                 frmNhanVien.Show();
+            }
+        }
+
+        private void btnLapPhieu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmLapPhieu));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.frmLapPhieu = new frmLapPhieu();
+                Program.frmLapPhieu.MdiParent = this;
+                Program.frmLapPhieu.Show();
+                Program.frmLapPhieu.btnSwitch.Links[0].Caption = "Đặt Hàng";
             }
         }
     }

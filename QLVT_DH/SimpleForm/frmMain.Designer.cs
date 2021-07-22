@@ -121,6 +121,7 @@
             this.btnLapPhieu.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnLapPhieu.ImageOptions.LargeImage")));
             this.btnLapPhieu.Name = "btnLapPhieu";
             this.btnLapPhieu.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.btnLapPhieu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnLapPhieu_ItemClick);
             // 
             // barButtonItem_CreateAccount
             // 
@@ -323,7 +324,7 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem_DHCPN;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_HDNV;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_THNX;
-        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer timer1;
     }
 }
 
