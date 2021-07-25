@@ -72,7 +72,7 @@ namespace QLVT_DH.SimpleForm
             //Mặc định vừa vào groupbox không dx hiện để tránh lỗi sửa các dòng cũ chưa lưu đi qua dòng khác
             btnUndo.Enabled = btnBreak.Enabled = false;
             gcInfoKho.Enabled = false;
-
+            txtMaKho.Enabled = false;
 
         }
 
@@ -83,16 +83,17 @@ namespace QLVT_DH.SimpleForm
             bdsKho.AddNew();
             txtMaCN.Text = maCN;
 
-            btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnThoat.Enabled = gridKho.Enabled = btnSua.Enabled  = false;
-            btnGhi.Enabled = btnUndo.Enabled = true;
+            btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnThoat.Enabled = gridKho.Enabled = btnSua.Enabled = btnUndo.Enabled  = false;
+            btnGhi.Enabled = btnBreak.Enabled = true;
 
             undolist.Push("INSERT");
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            position = bdsKho.Position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled  = btnReload.Enabled = false;
-            gcInfoKho.Enabled = btnGhi.Enabled = true;
+            gcInfoKho.Enabled = btnGhi.Enabled = btnBreak.Enabled = true;
             gridKho.Enabled = false;
 
             undolist.Push(txtMaKho.Text + "#" + txtTenKho.Text + "#" + txtDiaChi.Text);
@@ -181,7 +182,7 @@ namespace QLVT_DH.SimpleForm
                             bdsKho.Position = position;
                             //Program.frmMain.timer1.Enabled = true;
 
-                            btnSua.Enabled  = btnThoat.Enabled = btnUndo.Enabled = true;
+                            btnSua.Enabled  = btnThoat.Enabled = true;
                             btnGhi.Enabled = false;
                         }
                         catch (Exception ex)
@@ -304,5 +305,24 @@ namespace QLVT_DH.SimpleForm
             }
             if (undolist.Count == 0) btnUndo.Enabled = false;
         }
+
+        private void btnBreak_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string statement = undolist.Pop().ToString();
+            if (statement == "EDIT")
+            {
+                undolist.Pop();
+                bdsKho.CancelEdit();
+            }
+            else
+            {
+                bdsKho.RemoveCurrent();
+            }
+
+            bdsKho.Position = position;
+            btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled  = true;
+            gcInfoKho.Enabled = btnBreak.Enabled = false;
+            gridKho.Enabled = true;
         }
+    }
 }

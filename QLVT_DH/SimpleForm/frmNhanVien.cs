@@ -46,8 +46,8 @@ namespace QLVT_DH.SimpleForm
             dateNgaySinh.EditValue = "";
             cbTTXoa.Checked = false;
 
-            btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnThoat.Enabled = gridNhanVien.Enabled= btnSua.Enabled = btnChuyenChiNhanh.Enabled = false;
-            btnGhi.Enabled = btnUndo.Enabled = true;
+            btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = btnThoat.Enabled = gridNhanVien.Enabled= btnSua.Enabled = btnChuyenChiNhanh.Enabled = false;
+            btnGhi.Enabled = btnBreak.Enabled = true;
 
             undolist.Push("INSERT");
         }
@@ -151,8 +151,9 @@ namespace QLVT_DH.SimpleForm
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            position = bdsNV.Position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnChuyenChiNhanh.Enabled = btnReload.Enabled = false;
-            gcInfoNhanVien.Enabled = btnGhi.Enabled = true;
+            gcInfoNhanVien.Enabled = btnGhi.Enabled = btnBreak.Enabled = true;
             gridNhanVien.Enabled = false;
             
 
@@ -458,17 +459,32 @@ namespace QLVT_DH.SimpleForm
             }
 
             txtMaCN.Enabled = btnGhi.Enabled = gcInfoNhanVien.Enabled = false;
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
+            btnBreak.Enabled = false;
         }
 
         private void btnThoat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            this.Close();
+        }
 
+        private void btnBreak_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string statement = undolist.Pop().ToString();
+            if (statement == "EDIT")
+            {
+                undolist.Pop();
+                bdsNV.CancelEdit();
+            }
+            else
+            {
+               bdsNV.RemoveCurrent();
+            }
+            
+
+            bdsNV.Position = position;
+            btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
+            gcInfoNhanVien.Enabled = btnBreak.Enabled = false;
+            gridNhanVien.Enabled = true;
         }
     }
 }

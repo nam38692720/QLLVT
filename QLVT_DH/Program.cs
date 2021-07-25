@@ -7,6 +7,7 @@ using DevExpress.Skins;
 using System.Data.SqlClient;
 using System.Data;
 using QLVT_DH.SimpleForm;
+using QLVT_DH.SubForm;
 
 namespace QLVT_DH
 {
@@ -41,6 +42,12 @@ namespace QLVT_DH
         public static frmDangNhap frmDangNhap;
         public static frmMain frmMain;
         public static frmLapPhieu frmLapPhieu;
+        public static frmDonDatHang frmDonDatHang;
+        public static frmPhieuXuat frmPhieuXuat;
+
+        public static subFrmKho subFrmKho;
+        public static subFrmCTDDH subFrmCTDDH;
+        public static subFrmCTPX subFrmCTPX;
 
         public static BindingSource bds_dspm = new BindingSource();
 
@@ -115,6 +122,8 @@ namespace QLVT_DH
                 return ex.State; // trang thai lỗi gởi từ RAISERROR trong SQL Server qua
             }
         }
+
+        
 
         [STAThread]
         static void Main()

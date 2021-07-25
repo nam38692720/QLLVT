@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using DevExpress.XtraReports.UI;
 
 namespace QLVT_DH
 {
@@ -67,6 +68,49 @@ namespace QLVT_DH
 
         private void btnLapPhieu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //Form form = this.CheckExists(typeof(frmLapPhieu));
+            //if (form != null) form.Activate();
+            //else
+            //{
+            //    Program.frmLapPhieu = new frmLapPhieu();
+            //    Program.frmLapPhieu.MdiParent = this;
+            //    Program.frmLapPhieu.Show();
+            //    Program.frmLapPhieu.btnSwitch.Links[0].Caption = "Đặt Hàng";
+            //}
+
+            Form form = this.CheckExists(typeof(frmDonDatHang));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.frmDonDatHang = new frmDonDatHang();
+                Program.frmDonDatHang.MdiParent = this;
+                Program.frmDonDatHang.Show();
+                //Program.frmLapPhieu.btnSwitch.Links[0].Caption = "Đặt Hàng";
+            }
+        }
+
+        private void barButtonItem_DSVT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraReport1 rp = new XtraReport1();
+            ReportPrintTool print = new ReportPrintTool(rp);
+            print.ShowPreviewDialog();
+        }
+
+
+        private void btnLapPX_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmPhieuXuat));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.frmPhieuXuat = new frmPhieuXuat();
+                Program.frmPhieuXuat.MdiParent = this;
+                Program.frmPhieuXuat.Show();
+            }
+        }
+
+        private void btnPN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
             Form form = this.CheckExists(typeof(frmLapPhieu));
             if (form != null) form.Activate();
             else
@@ -77,5 +121,12 @@ namespace QLVT_DH
                 Program.frmLapPhieu.btnSwitch.Links[0].Caption = "Đặt Hàng";
             }
         }
+
+        //public bool checkFromExit(Form form)
+        //{
+        //    Form formCheck = this.CheckExists(typeof(form));
+        //    if (formCheck != null) return true;
+        //    else return false;
+        //}
     }
 }

@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
+using QLVT_DH.SubForm;
 
 namespace QLVT_DH.SimpleForm
 {
@@ -83,8 +85,8 @@ namespace QLVT_DH.SimpleForm
         private void frmLapPhieu_Load(object sender, EventArgs e)
         {
             
-            gridDDH.Height = 435;
-            gridPX.Height = 435;
+            gridDDH.Height = 380;
+            gridPX.Height = 380;
             gcDDH.Height = 240;
             gcDDH.Height = 240;
             gcPN.Height = 240;
@@ -128,6 +130,8 @@ namespace QLVT_DH.SimpleForm
                 cmbChiNhanh.Enabled = false;
                 gbInfoDDH.Enabled = gbInfoPX.Enabled = btnGhi.Enabled = false;
             }
+
+            switchPanel("Đặt Hàng", gcDDH, gridDDH);
 
             // Gán DataSource
             if (btnSwitch.Links[0].Caption.Equals("Phiếu Xuất"))
@@ -427,9 +431,11 @@ namespace QLVT_DH.SimpleForm
                     {
                         try
                         {
+                            
                             current_gb.Enabled = false;
                             btnThem.Enabled = btnXoa.Enabled = current_gc.Enabled = true;
                             btnReload.Enabled = btnGhi.Enabled = btnSwitch.Enabled = true;
+                            
                             current_bds.EndEdit();
 
                             if (btnSwitch.Links[0].Caption.Equals("Phiếu Xuất"))
@@ -444,7 +450,7 @@ namespace QLVT_DH.SimpleForm
                             }
                             current_bds.Position = position;
                             //timer giong settimeout
-                            Program.frmMain.timer1.Enabled = true;
+                            //Program.frmMain.timer1.Enabled = true;
                         }
                         catch (Exception ex)
                         {
@@ -456,6 +462,28 @@ namespace QLVT_DH.SimpleForm
                     }
                 }
             }
+        }
+
+        private void btnGridKho_Click(object sender, EventArgs e)
+        {
+            Program.subFrmKho = new subFrmKho();
+            Program.subFrmKho.Show();
+            //Program.frmMain.Enabled = false;
+        }
+
+        private void gridCTDDH_MouseHover(object sender, EventArgs e)
+        {
+            gridCTDDH.ContextMenuStrip = check_owner(bdsDH, gvDDH) ? cmsCTDDH : cmsChecked;
+        }
+
+        private bool check_owner(BindingSource current_bds, GridView current_gv)
+        {
+            int maNV = 0;
+            if (current_gv.GetRowCellValue(current_bds.Position, "MANV") != null)
+            {
+                maNV = int.Parse(current_gv.GetRowCellValue(current_bds.Position, "MANV").ToString().Trim());
+            }
+            return (maNV == Program.maNV);
         }
     }
 }

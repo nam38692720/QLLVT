@@ -51,6 +51,7 @@ namespace QLVT_DH.SimpleForm
             myReader.Read();
 
             Program.username = myReader.GetString(0); // lay user name
+            Program.maNV =int.Parse(Program.username);
             if (Convert.IsDBNull(Program.username))
             {
                 MessageBox.Show("Login bạn không có quyền truy cập dữ liệu \n Bạn xem lại", " ", MessageBoxButtons.OK);
