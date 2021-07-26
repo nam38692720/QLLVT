@@ -53,6 +53,12 @@ namespace QLVT_DH.SubForm
             {
                 Program.frmPhieuXuat.txtMaKho.Text = maKho;//chọn mã kho cho phiếu xuất
             }
+
+            var formPN = Application.OpenForms.OfType<frmPhieuNhap>().FirstOrDefault();
+            if (formPN != null)
+            {
+                Program.frmPhieuNhap.txtMaKho.Text = maKho;//chọn mã kho cho phiếu nhập
+            }
             this.Close();
         }
     }

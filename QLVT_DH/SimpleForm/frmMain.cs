@@ -111,14 +111,13 @@ namespace QLVT_DH
 
         private void btnPN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Form form = this.CheckExists(typeof(frmLapPhieu));
+            Form form = this.CheckExists(typeof(frmPhieuNhap));
             if (form != null) form.Activate();
             else
             {
-                Program.frmLapPhieu = new frmLapPhieu();
-                Program.frmLapPhieu.MdiParent = this;
-                Program.frmLapPhieu.Show();
-                Program.frmLapPhieu.btnSwitch.Links[0].Caption = "Đặt Hàng";
+                Program.frmPhieuNhap = new frmPhieuNhap();
+                Program.frmPhieuNhap.MdiParent = this;
+                Program.frmPhieuNhap.Show();
             }
         }
 

@@ -70,6 +70,42 @@ namespace QLVT_DH.SimpleForm
             gbInfoPX.Enabled = false;
             btnBreak.Enabled = false;
         }
+        private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Trường hợp chưa kịp chọn CN, thuộc tính index ở combobox sẽ thay đổi
+            // "System.Data.DataRowView" sẽ xuất hiện và tất nhiên hệ thống sẽ không thể
+            // nhận diện được tên server "System.Data.DataRowView".
+            if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
+            if (cmbChiNhanh.SelectedValue.ToString() == null) return;
+
+            // Lấy tên server
+            Program.servername = cmbChiNhanh.SelectedValue.ToString();
+
+            // Nếu tên server khác với tên server ngoài đăng nhập, thì ta phải sử dụng HTKN
+            if (cmbChiNhanh.SelectedIndex != Program.mChiNhanh)
+            {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+            }
+
+            if (Program.KetNoi() == 0)
+                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            else
+            {
+                this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.phieuXuatTableAdapter.Fill(this.DS.PHIEUXUAT);
+
+                // TODO: This line of code loads data into the 'DS.CTPX' table. You can move, or remove it, as needed.
+                this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.cTPXTableAdapter.Fill(this.DS.CTPX);
+                //maCN = ((DataRowView)bdsDH[0])["MACN"].ToString();
+            }
+        }
 
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -374,5 +410,6 @@ namespace QLVT_DH.SimpleForm
             gbInfoPX.Enabled = btnBreak.Enabled = false;
             gridPX.Enabled = true;
         }
+        
     }
 }

@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuXuat));
             System.Windows.Forms.Label mAPXLabel;
             System.Windows.Forms.Label hOTENKHLabel;
             System.Windows.Forms.Label mAKHOLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuXuat));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -41,6 +41,7 @@
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
             this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBreak = new DevExpress.XtraBars.BarButtonItem();
             this.btnThemCTPX = new DevExpress.XtraBars.BarButtonItem();
             this.btnSuaCTPX = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoaCTPX = new DevExpress.XtraBars.BarButtonItem();
@@ -50,80 +51,52 @@
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.DS = new QLVT_DH.DS();
             this.bdsPX = new System.Windows.Forms.BindingSource(this.components);
             this.phieuXuatTableAdapter = new QLVT_DH.DSTableAdapters.PHIEUXUATTableAdapter();
             this.tableAdapterManager = new QLVT_DH.DSTableAdapters.TableAdapterManager();
             this.cTPXTableAdapter = new QLVT_DH.DSTableAdapters.CTPXTableAdapter();
-            this.gcInfoPX = new DevExpress.XtraEditors.GroupControl();
-            this.cTPXGridControl = new DevExpress.XtraGrid.GridControl();
             this.bdsCTPX = new System.Windows.Forms.BindingSource(this.components);
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.colMAPX1 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.gbInfoPX = new System.Windows.Forms.GroupBox();
-            this.btnGridKho = new System.Windows.Forms.Button();
-            this.txtMaKho = new DevExpress.XtraEditors.TextEdit();
-            this.txtKH = new DevExpress.XtraEditors.TextEdit();
-            this.txtMaPX = new System.Windows.Forms.TextBox();
-            this.btnBreak = new DevExpress.XtraBars.BarButtonItem();
-            this.gridPX = new DevExpress.XtraGrid.GridControl();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAPX = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAY = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHOTENKH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAKHO = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.gridPX = new DevExpress.XtraGrid.GridControl();
+            this.gcInfoPX = new DevExpress.XtraEditors.GroupControl();
+            this.txtMaPX = new System.Windows.Forms.TextBox();
+            this.txtKH = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaKho = new DevExpress.XtraEditors.TextEdit();
+            this.btnGridKho = new System.Windows.Forms.Button();
+            this.gbInfoPX = new System.Windows.Forms.GroupBox();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.colMAPX1 = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.cTPXGridControl = new DevExpress.XtraGrid.GridControl();
             mAPXLabel = new System.Windows.Forms.Label();
             hOTENKHLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsCTPX)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoPX)).BeginInit();
             this.gcInfoPX.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cTPXGridControl)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCTPX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            this.gbInfoPX.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPX)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).BeginInit();
+            this.gbInfoPX.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTPXGridControl)).BeginInit();
             this.SuspendLayout();
-            // 
-            // mAPXLabel
-            // 
-            mAPXLabel.AutoSize = true;
-            mAPXLabel.Location = new System.Drawing.Point(26, 82);
-            mAPXLabel.Name = "mAPXLabel";
-            mAPXLabel.Size = new System.Drawing.Size(47, 17);
-            mAPXLabel.TabIndex = 0;
-            mAPXLabel.Text = "MAPX:";
-            // 
-            // hOTENKHLabel
-            // 
-            hOTENKHLabel.AutoSize = true;
-            hOTENKHLabel.Location = new System.Drawing.Point(26, 142);
-            hOTENKHLabel.Name = "hOTENKHLabel";
-            hOTENKHLabel.Size = new System.Drawing.Size(74, 17);
-            hOTENKHLabel.TabIndex = 2;
-            hOTENKHLabel.Text = "HOTENKH:";
-            // 
-            // mAKHOLabel
-            // 
-            mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(26, 218);
-            mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(58, 17);
-            mAKHOLabel.TabIndex = 4;
-            mAKHOLabel.Text = "MAKHO:";
             // 
             // barManager1
             // 
@@ -219,6 +192,15 @@
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGhi_ItemClick);
             // 
+            // btnBreak
+            // 
+            this.btnBreak.Caption = "Break";
+            this.btnBreak.Id = 11;
+            this.btnBreak.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.Image")));
+            this.btnBreak.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.LargeImage")));
+            this.btnBreak.Name = "btnBreak";
+            this.btnBreak.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBreak_ItemClick);
+            // 
             // btnThemCTPX
             // 
             this.btnThemCTPX.Caption = "Thêm chi tiết PX";
@@ -296,33 +278,6 @@
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 747);
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.cmbChiNhanh);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 30);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1153, 100);
-            this.panel1.TabIndex = 4;
-            // 
-            // cmbChiNhanh
-            // 
-            this.cmbChiNhanh.FormattingEnabled = true;
-            this.cmbChiNhanh.Location = new System.Drawing.Point(329, 35);
-            this.cmbChiNhanh.Name = "cmbChiNhanh";
-            this.cmbChiNhanh.Size = new System.Drawing.Size(247, 24);
-            this.cmbChiNhanh.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(172, 35);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Chi Nhánh";
-            // 
             // DS
             // 
             this.DS.DataSetName = "DS";
@@ -356,164 +311,38 @@
             // 
             this.cTPXTableAdapter.ClearBeforeFill = true;
             // 
-            // gcInfoPX
-            // 
-            this.gcInfoPX.Controls.Add(this.cTPXGridControl);
-            this.gcInfoPX.Controls.Add(this.gbInfoPX);
-            this.gcInfoPX.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.gcInfoPX.Location = new System.Drawing.Point(0, 448);
-            this.gcInfoPX.Name = "gcInfoPX";
-            this.gcInfoPX.Size = new System.Drawing.Size(1153, 329);
-            this.gcInfoPX.TabIndex = 7;
-            this.gcInfoPX.Text = "Phiếu xuất";
-            // 
-            // cTPXGridControl
-            // 
-            this.cTPXGridControl.DataSource = this.bdsCTPX;
-            this.cTPXGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cTPXGridControl.Location = new System.Drawing.Point(331, 28);
-            this.cTPXGridControl.MainView = this.gridView2;
-            this.cTPXGridControl.MenuManager = this.barManager1;
-            this.cTPXGridControl.Name = "cTPXGridControl";
-            this.cTPXGridControl.Size = new System.Drawing.Size(820, 299);
-            this.cTPXGridControl.TabIndex = 1;
-            this.cTPXGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
             // bdsCTPX
             // 
             this.bdsCTPX.DataMember = "FK_CTPX_PX";
             this.bdsCTPX.DataSource = this.bdsPX;
             // 
-            // gridView2
+            // label1
             // 
-            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colMAPX1,
-            this.colMAVT,
-            this.colSOLUONG,
-            this.colDONGIA});
-            this.gridView2.GridControl = this.cTPXGridControl;
-            this.gridView2.Name = "gridView2";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(172, 35);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Chi Nhánh";
             // 
-            // colMAPX1
+            // cmbChiNhanh
             // 
-            this.colMAPX1.FieldName = "MAPX";
-            this.colMAPX1.MinWidth = 25;
-            this.colMAPX1.Name = "colMAPX1";
-            this.colMAPX1.OptionsColumn.AllowEdit = false;
-            this.colMAPX1.OptionsColumn.AllowFocus = false;
-            this.colMAPX1.Visible = true;
-            this.colMAPX1.VisibleIndex = 0;
-            this.colMAPX1.Width = 94;
+            this.cmbChiNhanh.FormattingEnabled = true;
+            this.cmbChiNhanh.Location = new System.Drawing.Point(329, 35);
+            this.cmbChiNhanh.Name = "cmbChiNhanh";
+            this.cmbChiNhanh.Size = new System.Drawing.Size(247, 24);
+            this.cmbChiNhanh.TabIndex = 1;
+            this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged);
             // 
-            // colMAVT
+            // panel1
             // 
-            this.colMAVT.FieldName = "MAVT";
-            this.colMAVT.MinWidth = 25;
-            this.colMAVT.Name = "colMAVT";
-            this.colMAVT.OptionsColumn.AllowEdit = false;
-            this.colMAVT.OptionsColumn.AllowFocus = false;
-            this.colMAVT.Visible = true;
-            this.colMAVT.VisibleIndex = 1;
-            this.colMAVT.Width = 94;
-            // 
-            // colSOLUONG
-            // 
-            this.colSOLUONG.FieldName = "SOLUONG";
-            this.colSOLUONG.MinWidth = 25;
-            this.colSOLUONG.Name = "colSOLUONG";
-            this.colSOLUONG.OptionsColumn.AllowEdit = false;
-            this.colSOLUONG.OptionsColumn.AllowFocus = false;
-            this.colSOLUONG.Visible = true;
-            this.colSOLUONG.VisibleIndex = 2;
-            this.colSOLUONG.Width = 94;
-            // 
-            // colDONGIA
-            // 
-            this.colDONGIA.FieldName = "DONGIA";
-            this.colDONGIA.MinWidth = 25;
-            this.colDONGIA.Name = "colDONGIA";
-            this.colDONGIA.OptionsColumn.AllowEdit = false;
-            this.colDONGIA.OptionsColumn.AllowFocus = false;
-            this.colDONGIA.Visible = true;
-            this.colDONGIA.VisibleIndex = 3;
-            this.colDONGIA.Width = 94;
-            // 
-            // gbInfoPX
-            // 
-            this.gbInfoPX.Controls.Add(this.btnGridKho);
-            this.gbInfoPX.Controls.Add(mAKHOLabel);
-            this.gbInfoPX.Controls.Add(this.txtMaKho);
-            this.gbInfoPX.Controls.Add(hOTENKHLabel);
-            this.gbInfoPX.Controls.Add(this.txtKH);
-            this.gbInfoPX.Controls.Add(mAPXLabel);
-            this.gbInfoPX.Controls.Add(this.txtMaPX);
-            this.gbInfoPX.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbInfoPX.Location = new System.Drawing.Point(2, 28);
-            this.gbInfoPX.Name = "gbInfoPX";
-            this.gbInfoPX.Size = new System.Drawing.Size(329, 299);
-            this.gbInfoPX.TabIndex = 0;
-            this.gbInfoPX.TabStop = false;
-            this.gbInfoPX.Text = "Thông tin";
-            // 
-            // btnGridKho
-            // 
-            this.btnGridKho.Location = new System.Drawing.Point(266, 215);
-            this.btnGridKho.Name = "btnGridKho";
-            this.btnGridKho.Size = new System.Drawing.Size(35, 23);
-            this.btnGridKho.TabIndex = 6;
-            this.btnGridKho.Text = "...";
-            this.btnGridKho.UseVisualStyleBackColor = true;
-            this.btnGridKho.Click += new System.EventHandler(this.btnGridKho_Click);
-            // 
-            // txtMaKho
-            // 
-            this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPX, "MAKHO", true));
-            this.txtMaKho.Location = new System.Drawing.Point(115, 213);
-            this.txtMaKho.MenuManager = this.barManager1;
-            this.txtMaKho.Name = "txtMaKho";
-            this.txtMaKho.Properties.ReadOnly = true;
-            this.txtMaKho.Size = new System.Drawing.Size(125, 22);
-            this.txtMaKho.TabIndex = 5;
-            // 
-            // txtKH
-            // 
-            this.txtKH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPX, "HOTENKH", true));
-            this.txtKH.Location = new System.Drawing.Point(115, 139);
-            this.txtKH.MenuManager = this.barManager1;
-            this.txtKH.Name = "txtKH";
-            this.txtKH.Size = new System.Drawing.Size(125, 22);
-            this.txtKH.TabIndex = 3;
-            // 
-            // txtMaPX
-            // 
-            this.txtMaPX.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPX, "MAPX", true));
-            this.txtMaPX.Location = new System.Drawing.Point(115, 82);
-            this.txtMaPX.Name = "txtMaPX";
-            this.txtMaPX.Size = new System.Drawing.Size(125, 23);
-            this.txtMaPX.TabIndex = 1;
-            // 
-            // btnBreak
-            // 
-            this.btnBreak.Caption = "Break";
-            this.btnBreak.Id = 11;
-            this.btnBreak.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.Image")));
-            this.btnBreak.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.LargeImage")));
-            this.btnBreak.Name = "btnBreak";
-            this.btnBreak.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBreak_ItemClick);
-            // 
-            // gridPX
-            // 
-            this.gridPX.DataSource = this.bdsPX;
-            this.gridPX.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gridPX.Location = new System.Drawing.Point(0, 130);
-            this.gridPX.MainView = this.gridView1;
-            this.gridPX.MenuManager = this.barManager1;
-            this.gridPX.Name = "gridPX";
-            this.gridPX.Size = new System.Drawing.Size(1153, 312);
-            this.gridPX.TabIndex = 2;
-            this.gridPX.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.panel1.Controls.Add(this.cmbChiNhanh);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 30);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1153, 100);
+            this.panel1.TabIndex = 4;
             // 
             // gridView1
             // 
@@ -581,6 +410,178 @@
             this.colMANV.VisibleIndex = 4;
             this.colMANV.Width = 94;
             // 
+            // gridPX
+            // 
+            this.gridPX.DataSource = this.bdsPX;
+            this.gridPX.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gridPX.Location = new System.Drawing.Point(0, 130);
+            this.gridPX.MainView = this.gridView1;
+            this.gridPX.MenuManager = this.barManager1;
+            this.gridPX.Name = "gridPX";
+            this.gridPX.Size = new System.Drawing.Size(1153, 312);
+            this.gridPX.TabIndex = 2;
+            this.gridPX.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView1});
+            // 
+            // gcInfoPX
+            // 
+            this.gcInfoPX.Controls.Add(this.cTPXGridControl);
+            this.gcInfoPX.Controls.Add(this.gbInfoPX);
+            this.gcInfoPX.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.gcInfoPX.Location = new System.Drawing.Point(0, 448);
+            this.gcInfoPX.Name = "gcInfoPX";
+            this.gcInfoPX.Size = new System.Drawing.Size(1153, 329);
+            this.gcInfoPX.TabIndex = 7;
+            this.gcInfoPX.Text = "Phiếu xuất";
+            // 
+            // txtMaPX
+            // 
+            this.txtMaPX.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPX, "MAPX", true));
+            this.txtMaPX.Location = new System.Drawing.Point(115, 82);
+            this.txtMaPX.Name = "txtMaPX";
+            this.txtMaPX.Size = new System.Drawing.Size(125, 23);
+            this.txtMaPX.TabIndex = 1;
+            // 
+            // mAPXLabel
+            // 
+            mAPXLabel.AutoSize = true;
+            mAPXLabel.Location = new System.Drawing.Point(26, 82);
+            mAPXLabel.Name = "mAPXLabel";
+            mAPXLabel.Size = new System.Drawing.Size(47, 17);
+            mAPXLabel.TabIndex = 0;
+            mAPXLabel.Text = "MAPX:";
+            // 
+            // txtKH
+            // 
+            this.txtKH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPX, "HOTENKH", true));
+            this.txtKH.Location = new System.Drawing.Point(115, 139);
+            this.txtKH.MenuManager = this.barManager1;
+            this.txtKH.Name = "txtKH";
+            this.txtKH.Size = new System.Drawing.Size(125, 22);
+            this.txtKH.TabIndex = 3;
+            // 
+            // hOTENKHLabel
+            // 
+            hOTENKHLabel.AutoSize = true;
+            hOTENKHLabel.Location = new System.Drawing.Point(26, 142);
+            hOTENKHLabel.Name = "hOTENKHLabel";
+            hOTENKHLabel.Size = new System.Drawing.Size(74, 17);
+            hOTENKHLabel.TabIndex = 2;
+            hOTENKHLabel.Text = "HOTENKH:";
+            // 
+            // txtMaKho
+            // 
+            this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPX, "MAKHO", true));
+            this.txtMaKho.Location = new System.Drawing.Point(115, 213);
+            this.txtMaKho.MenuManager = this.barManager1;
+            this.txtMaKho.Name = "txtMaKho";
+            this.txtMaKho.Properties.ReadOnly = true;
+            this.txtMaKho.Size = new System.Drawing.Size(125, 22);
+            this.txtMaKho.TabIndex = 5;
+            // 
+            // mAKHOLabel
+            // 
+            mAKHOLabel.AutoSize = true;
+            mAKHOLabel.Location = new System.Drawing.Point(26, 218);
+            mAKHOLabel.Name = "mAKHOLabel";
+            mAKHOLabel.Size = new System.Drawing.Size(58, 17);
+            mAKHOLabel.TabIndex = 4;
+            mAKHOLabel.Text = "MAKHO:";
+            // 
+            // btnGridKho
+            // 
+            this.btnGridKho.Location = new System.Drawing.Point(266, 215);
+            this.btnGridKho.Name = "btnGridKho";
+            this.btnGridKho.Size = new System.Drawing.Size(35, 23);
+            this.btnGridKho.TabIndex = 6;
+            this.btnGridKho.Text = "...";
+            this.btnGridKho.UseVisualStyleBackColor = true;
+            this.btnGridKho.Click += new System.EventHandler(this.btnGridKho_Click);
+            // 
+            // gbInfoPX
+            // 
+            this.gbInfoPX.Controls.Add(this.btnGridKho);
+            this.gbInfoPX.Controls.Add(mAKHOLabel);
+            this.gbInfoPX.Controls.Add(this.txtMaKho);
+            this.gbInfoPX.Controls.Add(hOTENKHLabel);
+            this.gbInfoPX.Controls.Add(this.txtKH);
+            this.gbInfoPX.Controls.Add(mAPXLabel);
+            this.gbInfoPX.Controls.Add(this.txtMaPX);
+            this.gbInfoPX.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbInfoPX.Location = new System.Drawing.Point(2, 28);
+            this.gbInfoPX.Name = "gbInfoPX";
+            this.gbInfoPX.Size = new System.Drawing.Size(329, 299);
+            this.gbInfoPX.TabIndex = 0;
+            this.gbInfoPX.TabStop = false;
+            this.gbInfoPX.Text = "Thông tin";
+            // 
+            // gridView2
+            // 
+            this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colMAPX1,
+            this.colMAVT,
+            this.colSOLUONG,
+            this.colDONGIA});
+            this.gridView2.GridControl = this.cTPXGridControl;
+            this.gridView2.Name = "gridView2";
+            // 
+            // colMAPX1
+            // 
+            this.colMAPX1.FieldName = "MAPX";
+            this.colMAPX1.MinWidth = 25;
+            this.colMAPX1.Name = "colMAPX1";
+            this.colMAPX1.OptionsColumn.AllowEdit = false;
+            this.colMAPX1.OptionsColumn.AllowFocus = false;
+            this.colMAPX1.Visible = true;
+            this.colMAPX1.VisibleIndex = 0;
+            this.colMAPX1.Width = 94;
+            // 
+            // colMAVT
+            // 
+            this.colMAVT.FieldName = "MAVT";
+            this.colMAVT.MinWidth = 25;
+            this.colMAVT.Name = "colMAVT";
+            this.colMAVT.OptionsColumn.AllowEdit = false;
+            this.colMAVT.OptionsColumn.AllowFocus = false;
+            this.colMAVT.Visible = true;
+            this.colMAVT.VisibleIndex = 1;
+            this.colMAVT.Width = 94;
+            // 
+            // colSOLUONG
+            // 
+            this.colSOLUONG.FieldName = "SOLUONG";
+            this.colSOLUONG.MinWidth = 25;
+            this.colSOLUONG.Name = "colSOLUONG";
+            this.colSOLUONG.OptionsColumn.AllowEdit = false;
+            this.colSOLUONG.OptionsColumn.AllowFocus = false;
+            this.colSOLUONG.Visible = true;
+            this.colSOLUONG.VisibleIndex = 2;
+            this.colSOLUONG.Width = 94;
+            // 
+            // colDONGIA
+            // 
+            this.colDONGIA.FieldName = "DONGIA";
+            this.colDONGIA.MinWidth = 25;
+            this.colDONGIA.Name = "colDONGIA";
+            this.colDONGIA.OptionsColumn.AllowEdit = false;
+            this.colDONGIA.OptionsColumn.AllowFocus = false;
+            this.colDONGIA.Visible = true;
+            this.colDONGIA.VisibleIndex = 3;
+            this.colDONGIA.Width = 94;
+            // 
+            // cTPXGridControl
+            // 
+            this.cTPXGridControl.DataSource = this.bdsCTPX;
+            this.cTPXGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cTPXGridControl.Location = new System.Drawing.Point(331, 28);
+            this.cTPXGridControl.MainView = this.gridView2;
+            this.cTPXGridControl.MenuManager = this.barManager1;
+            this.cTPXGridControl.Name = "cTPXGridControl";
+            this.cTPXGridControl.Size = new System.Drawing.Size(820, 299);
+            this.cTPXGridControl.TabIndex = 1;
+            this.cTPXGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
             // frmPhieuXuat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -598,21 +599,21 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmPhieuXuat_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsCTPX)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridPX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoPX)).EndInit();
             this.gcInfoPX.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cTPXGridControl)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsCTPX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).EndInit();
             this.gbInfoPX.ResumeLayout(false);
             this.gbInfoPX.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridPX)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTPXGridControl)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -637,25 +638,10 @@
         private DevExpress.XtraBars.BarButtonItem btnThoat;
         private System.Windows.Forms.BindingSource bdsPX;
         private DS DS;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox cmbChiNhanh;
-        private System.Windows.Forms.Label label1;
         private DSTableAdapters.PHIEUXUATTableAdapter phieuXuatTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private DevExpress.XtraEditors.GroupControl gcInfoPX;
-        private System.Windows.Forms.GroupBox gbInfoPX;
         private DSTableAdapters.CTPXTableAdapter cTPXTableAdapter;
         private System.Windows.Forms.BindingSource bdsCTPX;
-        private DevExpress.XtraGrid.GridControl cTPXGridControl;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAPX1;
-        private DevExpress.XtraGrid.Columns.GridColumn colMAVT;
-        private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
-        private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
-        private DevExpress.XtraEditors.TextEdit txtKH;
-        private System.Windows.Forms.TextBox txtMaPX;
-        public DevExpress.XtraEditors.TextEdit txtMaKho;
-        private System.Windows.Forms.Button btnGridKho;
         private DevExpress.XtraBars.BarButtonItem btnXoaCTPX;
         private DevExpress.XtraBars.BarButtonItem btnSuaCTPX;
         private DevExpress.XtraBars.BarButtonItem btnBreak;
@@ -666,5 +652,20 @@
         private DevExpress.XtraGrid.Columns.GridColumn colHOTENKH;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHO;
         private DevExpress.XtraGrid.Columns.GridColumn colMANV;
+        private DevExpress.XtraEditors.GroupControl gcInfoPX;
+        private DevExpress.XtraGrid.GridControl cTPXGridControl;
+        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAPX1;
+        private DevExpress.XtraGrid.Columns.GridColumn colMAVT;
+        private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
+        private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
+        private System.Windows.Forms.GroupBox gbInfoPX;
+        private System.Windows.Forms.Button btnGridKho;
+        public DevExpress.XtraEditors.TextEdit txtMaKho;
+        private DevExpress.XtraEditors.TextEdit txtKH;
+        private System.Windows.Forms.TextBox txtMaPX;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.ComboBox cmbChiNhanh;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -34,9 +34,10 @@
             System.Windows.Forms.Label dONGIALabel;
             System.Windows.Forms.Label sOLUONGLabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numDG = new System.Windows.Forms.NumericUpDown();
+            this.numSL = new System.Windows.Forms.NumericUpDown();
             this.bdsCTPX = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new QLVT_DH.DS();
+            this.numDG = new System.Windows.Forms.NumericUpDown();
             this.btnGhi = new System.Windows.Forms.Button();
             this.txtMaVT = new DevExpress.XtraEditors.TextEdit();
             this.txtMaPX = new DevExpress.XtraEditors.TextEdit();
@@ -50,27 +51,26 @@
             this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.numSL = new System.Windows.Forms.NumericUpDown();
             mAPXLabel = new System.Windows.Forms.Label();
             mAVTLabel = new System.Windows.Forms.Label();
             dONGIALabel = new System.Windows.Forms.Label();
             sOLUONGLabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSL)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVT.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaPX.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvVT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSL)).BeginInit();
             this.SuspendLayout();
             // 
             // mAPXLabel
             // 
             mAPXLabel.AutoSize = true;
-            mAPXLabel.Location = new System.Drawing.Point(26, 151);
+            mAPXLabel.Location = new System.Drawing.Point(40, 111);
             mAPXLabel.Name = "mAPXLabel";
             mAPXLabel.Size = new System.Drawing.Size(50, 17);
             mAPXLabel.TabIndex = 0;
@@ -79,7 +79,7 @@
             // mAVTLabel
             // 
             mAVTLabel.AutoSize = true;
-            mAVTLabel.Location = new System.Drawing.Point(26, 203);
+            mAVTLabel.Location = new System.Drawing.Point(40, 163);
             mAVTLabel.Name = "mAVTLabel";
             mAVTLabel.Size = new System.Drawing.Size(50, 17);
             mAVTLabel.TabIndex = 2;
@@ -88,11 +88,20 @@
             // dONGIALabel
             // 
             dONGIALabel.AutoSize = true;
-            dONGIALabel.Location = new System.Drawing.Point(26, 317);
+            dONGIALabel.Location = new System.Drawing.Point(40, 277);
             dONGIALabel.Name = "dONGIALabel";
             dONGIALabel.Size = new System.Drawing.Size(66, 17);
             dONGIALabel.TabIndex = 9;
             dONGIALabel.Text = "DONGIA:";
+            // 
+            // sOLUONGLabel
+            // 
+            sOLUONGLabel.AutoSize = true;
+            sOLUONGLabel.Location = new System.Drawing.Point(40, 221);
+            sOLUONGLabel.Name = "sOLUONGLabel";
+            sOLUONGLabel.Size = new System.Drawing.Size(82, 17);
+            sOLUONGLabel.TabIndex = 10;
+            sOLUONGLabel.Text = "SOLUONG:";
             // 
             // groupBox1
             // 
@@ -113,18 +122,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
             // 
-            // numDG
+            // numSL
             // 
-            this.numDG.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsCTPX, "DONGIA", true));
-            this.numDG.Location = new System.Drawing.Point(119, 317);
-            this.numDG.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.numDG.Name = "numDG";
-            this.numDG.Size = new System.Drawing.Size(120, 22);
-            this.numDG.TabIndex = 10;
+            this.numSL.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsCTPX, "SOLUONG", true));
+            this.numSL.Location = new System.Drawing.Point(133, 219);
+            this.numSL.Name = "numSL";
+            this.numSL.Size = new System.Drawing.Size(120, 22);
+            this.numSL.TabIndex = 11;
             // 
             // bdsCTPX
             // 
@@ -136,9 +140,22 @@
             this.DS.DataSetName = "DS";
             this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // numDG
+            // 
+            this.numDG.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsCTPX, "DONGIA", true));
+            this.numDG.Location = new System.Drawing.Point(133, 277);
+            this.numDG.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.numDG.Name = "numDG";
+            this.numDG.Size = new System.Drawing.Size(120, 22);
+            this.numDG.TabIndex = 10;
+            // 
             // btnGhi
             // 
-            this.btnGhi.Location = new System.Drawing.Point(169, 390);
+            this.btnGhi.Location = new System.Drawing.Point(183, 350);
             this.btnGhi.Name = "btnGhi";
             this.btnGhi.Size = new System.Drawing.Size(75, 23);
             this.btnGhi.TabIndex = 8;
@@ -149,7 +166,7 @@
             // txtMaVT
             // 
             this.txtMaVT.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPX, "MAVT", true));
-            this.txtMaVT.Location = new System.Drawing.Point(119, 200);
+            this.txtMaVT.Location = new System.Drawing.Point(133, 160);
             this.txtMaVT.Name = "txtMaVT";
             this.txtMaVT.Properties.AllowFocused = false;
             this.txtMaVT.Properties.ReadOnly = true;
@@ -159,7 +176,7 @@
             // txtMaPX
             // 
             this.txtMaPX.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPX, "MAPX", true));
-            this.txtMaPX.Location = new System.Drawing.Point(119, 148);
+            this.txtMaPX.Location = new System.Drawing.Point(133, 108);
             this.txtMaPX.Name = "txtMaPX";
             this.txtMaPX.Properties.AllowFocused = false;
             this.txtMaPX.Properties.ReadOnly = true;
@@ -261,23 +278,6 @@
             this.colSOLUONGTON.VisibleIndex = 3;
             this.colSOLUONGTON.Width = 94;
             // 
-            // sOLUONGLabel
-            // 
-            sOLUONGLabel.AutoSize = true;
-            sOLUONGLabel.Location = new System.Drawing.Point(26, 261);
-            sOLUONGLabel.Name = "sOLUONGLabel";
-            sOLUONGLabel.Size = new System.Drawing.Size(82, 17);
-            sOLUONGLabel.TabIndex = 10;
-            sOLUONGLabel.Text = "SOLUONG:";
-            // 
-            // numSL
-            // 
-            this.numSL.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsCTPX, "SOLUONG", true));
-            this.numSL.Location = new System.Drawing.Point(119, 259);
-            this.numSL.Name = "numSL";
-            this.numSL.Size = new System.Drawing.Size(120, 22);
-            this.numSL.TabIndex = 11;
-            // 
             // subFrmCTPX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -291,15 +291,15 @@
             this.Shown += new System.EventHandler(this.subFrmCTPX_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSL)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numDG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaVT.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaPX.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvVT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numSL)).EndInit();
             this.ResumeLayout(false);
 
         }
