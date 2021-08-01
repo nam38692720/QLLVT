@@ -116,5 +116,30 @@ namespace QLVT_DH.SubForm
         {
             txtMaVT.Text = getDataRow(bdsVT, "MAVT");
         }
+
+        private void subFrmCTDDH_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bdsCTDDH.CancelEdit();
+        }
+
+        private void numSL_Validating(object sender, CancelEventArgs e)
+        {
+            if (numSL.Value < 0)
+            {
+                e.Cancel = true;
+                numSL.Focus();
+                errorProvider1.SetError(numSL, "Số lượng phải lớn hơn 0!");
+            }
+        }
+
+        private void numDG_Validating(object sender, CancelEventArgs e)
+        {
+            if (numDG.Value == 0)
+            {
+                e.Cancel = true;
+                numDG.Focus();
+                errorProvider1.SetError(numDG, "Đơn giá phải lớn hơn 0!");
+            }
+        }
     }
 }

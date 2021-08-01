@@ -324,5 +324,74 @@ namespace QLVT_DH.SimpleForm
             gcInfoKho.Enabled = btnBreak.Enabled = false;
             gridKho.Enabled = true;
         }
+
+        private void txtMaKho_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaKho.Text))
+            {
+                e.Cancel = true;
+                txtMaKho.Focus();
+                errorProvider1.SetError(txtMaKho, "Mã kho không được để trống!");
+            }
+            else if (txtMaKho.Text.Trim().Contains("#"))
+            {
+                e.Cancel = true;
+                txtMaKho.Focus();
+                errorProvider1.SetError(txtMaKho, "Mã kho không được chứa ký tự đặc biệt!");
+            }
+            else if (txtMaKho.Text.Length > 4)
+            {
+                e.Cancel = true;
+                txtMaKho.Focus();
+                errorProvider1.SetError(txtMaKho, "Mã kho không được quá 4 kí tự");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaKho, "");
+            }
+        }
+
+        private void txtTenKho_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtTenKho.Text.Trim().Contains("#"))
+            {
+                e.Cancel = true;
+                txtTenKho.Focus();
+                errorProvider1.SetError(txtTenKho, "Mã kho không được chứa ký tự đặc biệt!");
+            }
+            else if (txtTenKho.Text.Length > 30)
+            {
+                e.Cancel = true;
+                txtTenKho.Focus();
+                errorProvider1.SetError(txtTenKho, "Tên kho không được quá 30 kí tự");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaKho, "");
+            }
+        }
+
+        private void txtDiaChi_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtDiaChi.Text.Trim().Contains("#"))
+            {
+                e.Cancel = true;
+                txtDiaChi.Focus();
+                errorProvider1.SetError(txtDiaChi, "Mã kho không được chứa ký tự đặc biệt!");
+            }
+            else if (txtDiaChi.Text.Length > 100)
+            {
+                e.Cancel = true;
+                txtDiaChi.Focus();
+                errorProvider1.SetError(txtDiaChi, "Tên kho không được quá 100 kí tự");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtDiaChi, "");
+            }
+        }
     }
 }

@@ -151,6 +151,7 @@
             this.barButtonItem_DSNV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_DSNV.ImageOptions.SvgImage")));
             this.barButtonItem_DSNV.Name = "barButtonItem_DSNV";
             this.barButtonItem_DSNV.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem_DSNV.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_DSNV_ItemClick);
             // 
             // barButtonItem_DSVT
             // 
@@ -176,6 +177,7 @@
             this.barButtonItem_DHCPN.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_DHCPN.ImageOptions.SvgImage")));
             this.barButtonItem_DHCPN.Name = "barButtonItem_DHCPN";
             this.barButtonItem_DHCPN.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem_DHCPN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_DHCPN_ItemClick);
             // 
             // barButtonItem_HDNV
             // 
@@ -192,6 +194,7 @@
             this.barButtonItem_THNX.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_THNX.ImageOptions.SvgImage")));
             this.barButtonItem_THNX.Name = "barButtonItem_THNX";
             this.barButtonItem_THNX.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem_THNX.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_THNX_ItemClick);
             // 
             // btnLapPX
             // 
@@ -207,8 +210,8 @@
             // 
             this.btnPN.Caption = "Phiếu Nhập";
             this.btnPN.Id = 15;
-            this.btnPN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.Image")));
-            this.btnPN.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem1.ImageOptions.LargeImage")));
+            this.btnPN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPN.ImageOptions.Image")));
+            this.btnPN.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPN.ImageOptions.LargeImage")));
             this.btnPN.Name = "btnPN";
             this.btnPN.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.btnPN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPN_ItemClick);
@@ -230,14 +233,12 @@
             this.ribbonPageGroup1.ItemLinks.Add(this.btnLapPX);
             this.ribbonPageGroup1.ItemLinks.Add(this.btnPN);
             this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "ribbonPageGroup1";
             // 
             // ribbonPageGroup3
             // 
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem_CreateAccount);
             this.ribbonPageGroup3.ItemLinks.Add(this.barButtonItem_out);
             this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-            this.ribbonPageGroup3.Text = "ribbonPageGroup3";
             // 
             // ribbonPage1
             // 
@@ -255,7 +256,6 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem_HDNV);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem_THNX);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-            this.ribbonPageGroup2.Text = "ribbonPageGroup2";
             // 
             // xtraTabbedMdiManager1
             // 

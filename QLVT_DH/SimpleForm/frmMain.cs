@@ -9,6 +9,7 @@ using System.Text;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using DevExpress.XtraReports.UI;
+using QLVT_DH.Reports;
 
 namespace QLVT_DH
 {
@@ -91,7 +92,7 @@ namespace QLVT_DH
 
         private void barButtonItem_DSVT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            XtraReport1 rp = new XtraReport1();
+            xtrp_DSVT rp = new xtrp_DSVT();
             ReportPrintTool print = new ReportPrintTool(rp);
             print.ShowPreviewDialog();
         }
@@ -118,6 +119,41 @@ namespace QLVT_DH
                 Program.frmPhieuNhap = new frmPhieuNhap();
                 Program.frmPhieuNhap.MdiParent = this;
                 Program.frmPhieuNhap.Show();
+            }
+        }
+
+        private void barButtonItem_DSNV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmSupportCommon));
+            if (form != null) form.Activate();
+            else
+            {
+                frmSupportCommon f = new frmSupportCommon(1);
+                //Program.frmMain.Enabled = false;
+                f.ShowDialog();
+            }
+        }
+
+        private void barButtonItem_THNX_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmSupport_THNX));
+            if (form != null) form.Activate();
+            else
+            {
+                frmSupport_THNX f = new frmSupport_THNX();
+                f.ShowDialog();
+            }
+        }
+
+        private void barButtonItem_DHCPN_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmSupportCommon));
+            if (form != null) form.Activate();
+            else
+            {
+                frmSupportCommon f = new frmSupportCommon(4);
+                //Program.frmMain.Enabled = false;
+                f.ShowDialog();
             }
         }
 

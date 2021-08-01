@@ -34,6 +34,7 @@
             System.Windows.Forms.Label sOLUONGLabel;
             System.Windows.Forms.Label dONGIALabel;
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numDG = new System.Windows.Forms.NumericUpDown();
             this.bdsCTDDH = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new QLVT_DH.DS();
             this.numSL = new System.Windows.Forms.NumericUpDown();
@@ -50,12 +51,13 @@
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
             this.btnGhi = new System.Windows.Forms.Button();
-            this.numDG = new System.Windows.Forms.NumericUpDown();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             masoDDHLabel = new System.Windows.Forms.Label();
             mAVTLabel = new System.Windows.Forms.Label();
             sOLUONGLabel = new System.Windows.Forms.Label();
             dONGIALabel = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDG)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSL)).BeginInit();
@@ -64,7 +66,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvVT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // masoDDHLabel
@@ -94,6 +96,15 @@
             sOLUONGLabel.TabIndex = 4;
             sOLUONGLabel.Text = "SOLUONG:";
             // 
+            // dONGIALabel
+            // 
+            dONGIALabel.AutoSize = true;
+            dONGIALabel.Location = new System.Drawing.Point(32, 282);
+            dONGIALabel.Name = "dONGIALabel";
+            dONGIALabel.Size = new System.Drawing.Size(66, 17);
+            dONGIALabel.TabIndex = 6;
+            dONGIALabel.Text = "DONGIA:";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(dONGIALabel);
@@ -111,6 +122,20 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Thông tin";
+            // 
+            // numDG
+            // 
+            this.numDG.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsCTDDH, "DONGIA", true));
+            this.numDG.Location = new System.Drawing.Point(130, 280);
+            this.numDG.Maximum = new decimal(new int[] {
+            999999999,
+            0,
+            0,
+            0});
+            this.numDG.Name = "numDG";
+            this.numDG.Size = new System.Drawing.Size(125, 22);
+            this.numDG.TabIndex = 7;
+            this.numDG.Validating += new System.ComponentModel.CancelEventHandler(this.numDG_Validating);
             // 
             // bdsCTDDH
             // 
@@ -134,6 +159,7 @@
             this.numSL.Name = "numSL";
             this.numSL.Size = new System.Drawing.Size(125, 22);
             this.numSL.TabIndex = 5;
+            this.numSL.Validating += new System.ComponentModel.CancelEventHandler(this.numSL_Validating);
             // 
             // txtMaVT
             // 
@@ -260,27 +286,9 @@
             this.btnGhi.UseVisualStyleBackColor = true;
             this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
             // 
-            // dONGIALabel
+            // errorProvider1
             // 
-            dONGIALabel.AutoSize = true;
-            dONGIALabel.Location = new System.Drawing.Point(32, 282);
-            dONGIALabel.Name = "dONGIALabel";
-            dONGIALabel.Size = new System.Drawing.Size(66, 17);
-            dONGIALabel.TabIndex = 6;
-            dONGIALabel.Text = "DONGIA:";
-            // 
-            // numDG
-            // 
-            this.numDG.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsCTDDH, "DONGIA", true));
-            this.numDG.Location = new System.Drawing.Point(130, 280);
-            this.numDG.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.numDG.Name = "numDG";
-            this.numDG.Size = new System.Drawing.Size(125, 22);
-            this.numDG.TabIndex = 7;
+            this.errorProvider1.ContainerControl = this;
             // 
             // subFrmCTDDH
             // 
@@ -292,10 +300,12 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "subFrmCTDDH";
             this.Text = "subFrmCTDDH";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.subFrmCTDDH_FormClosing);
             this.Load += new System.EventHandler(this.subFrmCTDDH_Load);
             this.Shown += new System.EventHandler(this.subFrmCTDDH_Shown);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numDG)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSL)).EndInit();
@@ -304,7 +314,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvVT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -329,5 +339,6 @@
         private DevExpress.XtraEditors.TextEdit txtMaDDH;
         private System.Windows.Forms.NumericUpDown numSL;
         private System.Windows.Forms.NumericUpDown numDG;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -51,6 +51,9 @@
             this.colTENVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGTON = new DevExpress.XtraGrid.Columns.GridColumn();
+            this.bdsPX = new System.Windows.Forms.BindingSource(this.components);
+            this.pHIEUXUATTableAdapter = new QLVT_DH.DSTableAdapters.PHIEUXUATTableAdapter();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             mAPXLabel = new System.Windows.Forms.Label();
             mAVTLabel = new System.Windows.Forms.Label();
             dONGIALabel = new System.Windows.Forms.Label();
@@ -65,6 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvVT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // mAPXLabel
@@ -129,6 +134,7 @@
             this.numSL.Name = "numSL";
             this.numSL.Size = new System.Drawing.Size(120, 22);
             this.numSL.TabIndex = 11;
+            this.numSL.Validating += new System.ComponentModel.CancelEventHandler(this.numSL_Validating);
             // 
             // bdsCTPX
             // 
@@ -152,6 +158,7 @@
             this.numDG.Name = "numDG";
             this.numDG.Size = new System.Drawing.Size(120, 22);
             this.numDG.TabIndex = 10;
+            this.numDG.Validating += new System.ComponentModel.CancelEventHandler(this.numDG_Validating);
             // 
             // btnGhi
             // 
@@ -215,10 +222,10 @@
             // 
             this.vattuGridControl.DataSource = this.bdsVT;
             this.vattuGridControl.Dock = System.Windows.Forms.DockStyle.Right;
-            this.vattuGridControl.Location = new System.Drawing.Point(331, 0);
+            this.vattuGridControl.Location = new System.Drawing.Point(311, 0);
             this.vattuGridControl.MainView = this.gvVT;
             this.vattuGridControl.Name = "vattuGridControl";
-            this.vattuGridControl.Size = new System.Drawing.Size(469, 450);
+            this.vattuGridControl.Size = new System.Drawing.Size(620, 450);
             this.vattuGridControl.TabIndex = 2;
             this.vattuGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvVT});
@@ -278,15 +285,29 @@
             this.colSOLUONGTON.VisibleIndex = 3;
             this.colSOLUONGTON.Width = 94;
             // 
+            // bdsPX
+            // 
+            this.bdsPX.DataMember = "PHIEUXUAT";
+            this.bdsPX.DataSource = this.DS;
+            // 
+            // pHIEUXUATTableAdapter
+            // 
+            this.pHIEUXUATTableAdapter.ClearBeforeFill = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // subFrmCTPX
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(931, 450);
             this.Controls.Add(this.vattuGridControl);
             this.Controls.Add(this.groupBox1);
             this.Name = "subFrmCTPX";
             this.Text = "subFrmCTPX";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.subFrmCTPX_FormClosing);
             this.Load += new System.EventHandler(this.subFrmCTPX_Load);
             this.Shown += new System.EventHandler(this.subFrmCTPX_Shown);
             this.groupBox1.ResumeLayout(false);
@@ -300,6 +321,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsVT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vattuGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvVT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,5 +347,8 @@
         private System.Windows.Forms.Button btnGhi;
         private System.Windows.Forms.NumericUpDown numDG;
         private System.Windows.Forms.NumericUpDown numSL;
+        private System.Windows.Forms.BindingSource bdsPX;
+        private DSTableAdapters.PHIEUXUATTableAdapter pHIEUXUATTableAdapter;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

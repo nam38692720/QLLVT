@@ -34,6 +34,7 @@
             System.Windows.Forms.Label sOLUONGLabel;
             System.Windows.Forms.Label dONGIALabel;
             this.gbCTPN = new System.Windows.Forms.GroupBox();
+            this.btnGhi = new System.Windows.Forms.Button();
             this.numDG = new System.Windows.Forms.NumericUpDown();
             this.bdsCTPN = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new QLVT_DH.DS();
@@ -52,7 +53,7 @@
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.btnGhi = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             mAPNLabel = new System.Windows.Forms.Label();
             mAVTLabel = new System.Windows.Forms.Label();
             sOLUONGLabel = new System.Windows.Forms.Label();
@@ -68,6 +69,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHGridControl)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTDDH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // mAPNLabel
@@ -125,6 +127,16 @@
             this.gbCTPN.TabStop = false;
             this.gbCTPN.Text = "Thông tin";
             // 
+            // btnGhi
+            // 
+            this.btnGhi.Location = new System.Drawing.Point(141, 389);
+            this.btnGhi.Name = "btnGhi";
+            this.btnGhi.Size = new System.Drawing.Size(102, 23);
+            this.btnGhi.TabIndex = 8;
+            this.btnGhi.Text = "Ghi";
+            this.btnGhi.UseVisualStyleBackColor = true;
+            this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
+            // 
             // numDG
             // 
             this.numDG.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.bdsCTPN, "DONGIA", true));
@@ -137,6 +149,7 @@
             this.numDG.Name = "numDG";
             this.numDG.Size = new System.Drawing.Size(125, 22);
             this.numDG.TabIndex = 7;
+            this.numDG.Validating += new System.ComponentModel.CancelEventHandler(this.numDG_Validating);
             // 
             // bdsCTPN
             // 
@@ -160,20 +173,25 @@
             this.numSL.Name = "numSL";
             this.numSL.Size = new System.Drawing.Size(125, 22);
             this.numSL.TabIndex = 5;
+            this.numSL.Validating += new System.ComponentModel.CancelEventHandler(this.numSL_Validating);
             // 
             // txtMaVT
             // 
             this.txtMaVT.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPN, "MAVT", true));
+            this.txtMaVT.Enabled = false;
             this.txtMaVT.Location = new System.Drawing.Point(118, 180);
             this.txtMaVT.Name = "txtMaVT";
+            this.txtMaVT.Properties.ReadOnly = true;
             this.txtMaVT.Size = new System.Drawing.Size(125, 22);
             this.txtMaVT.TabIndex = 3;
             // 
             // txtMaPN
             // 
             this.txtMaPN.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsCTPN, "MAPN", true));
+            this.txtMaPN.Enabled = false;
             this.txtMaPN.Location = new System.Drawing.Point(118, 119);
             this.txtMaPN.Name = "txtMaPN";
+            this.txtMaPN.Properties.ReadOnly = true;
             this.txtMaPN.Size = new System.Drawing.Size(125, 22);
             this.txtMaPN.TabIndex = 1;
             // 
@@ -281,15 +299,9 @@
             this.colDONGIA.VisibleIndex = 3;
             this.colDONGIA.Width = 94;
             // 
-            // btnGhi
+            // errorProvider1
             // 
-            this.btnGhi.Location = new System.Drawing.Point(141, 389);
-            this.btnGhi.Name = "btnGhi";
-            this.btnGhi.Size = new System.Drawing.Size(102, 23);
-            this.btnGhi.TabIndex = 8;
-            this.btnGhi.Text = "Ghi";
-            this.btnGhi.UseVisualStyleBackColor = true;
-            this.btnGhi.Click += new System.EventHandler(this.btnGhi_Click);
+            this.errorProvider1.ContainerControl = this;
             // 
             // subFrmCTPN
             // 
@@ -300,6 +312,7 @@
             this.Controls.Add(this.gbCTPN);
             this.Name = "subFrmCTPN";
             this.Text = "subFrmCTPN";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.subFrmCTPN_FormClosed);
             this.Load += new System.EventHandler(this.subFrmCTPN_Load);
             this.Shown += new System.EventHandler(this.subFrmCTPN_Shown);
             this.gbCTPN.ResumeLayout(false);
@@ -314,6 +327,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHGridControl)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTDDH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,5 +354,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colSOLUONG;
         private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
         private System.Windows.Forms.Button btnGhi;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

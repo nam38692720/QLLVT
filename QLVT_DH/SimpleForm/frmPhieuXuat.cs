@@ -410,6 +410,41 @@ namespace QLVT_DH.SimpleForm
             gbInfoPX.Enabled = btnBreak.Enabled = false;
             gridPX.Enabled = true;
         }
-        
+
+        private void txtMaPX_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaPX.Text))
+            {
+                e.Cancel = true;
+                txtMaPX.Focus();
+                errorProvider1.SetError(txtMaPX, "Mã PX không được để trống!");
+            }
+            else if (txtMaPX.Text.Trim().Contains(" "))
+            {
+                e.Cancel = true;
+                txtMaPX.Focus();
+                errorProvider1.SetError(txtMaPX, "Mã PX không được chứa khoảng trắng!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaPX, "");
+            }
+        }
+
+        private void txtKH_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtKH.Text))
+            {
+                e.Cancel = true;
+                txtKH.Focus();
+                errorProvider1.SetError(txtKH, "Tên khách hàng không được để trống!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtKH, "");
+            }
+        }
     }
 }

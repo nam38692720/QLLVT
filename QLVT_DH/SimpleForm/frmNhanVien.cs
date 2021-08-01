@@ -1,4 +1,5 @@
-﻿using QLVT_DH.SubForm;
+﻿using DevExpress.XtraEditors;
+using QLVT_DH.SubForm;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -485,6 +486,196 @@ namespace QLVT_DH.SimpleForm
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
             gcInfoNhanVien.Enabled = btnBreak.Enabled = false;
             gridNhanVien.Enabled = true;
+        }
+        private bool Validate(DateEdit date, string str)
+        {
+            if (date.Text.Trim().Equals(""))
+            {
+                MessageBox.Show(str, "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                date.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        private void txtMaNV_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaNV.Text))
+            {
+                e.Cancel = true;
+                txtMaNV.Focus();
+                errorProvider1.SetError(txtMaNV, "Mã nhân viên không được để trống!");
+            }
+            else if (txtMaNV.Text.Trim().Contains(" "))
+            {
+                e.Cancel = true;
+                txtMaNV.Focus();
+                errorProvider1.SetError(txtMaNV, "Mã nhân viên không được chứa khoảng trắng!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaNV, "");
+            }
+        }
+
+        private void txtMaCN_Validating(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void txtHo_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtHo.Text))
+            {
+                e.Cancel = true;
+                txtHo.Focus();
+                errorProvider1.SetError(txtHo, "Họ nhân viên không được để trống!");
+            }
+            else if (txtHo.Text.Trim().Contains("#"))
+            {
+                e.Cancel = true;
+                txtHo.Focus();
+                errorProvider1.SetError(txtHo, "Họ nhân viên không được chứa ký tự đặc biệt!");
+            }
+            else if (txtHo.Text.Length > 40)
+            {
+                e.Cancel = true;
+                txtHo.Focus();
+                errorProvider1.SetError(txtHo, "Họ nhân viên không được quá 40 kí tự");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtHo, "");
+            }
+        }
+
+        private void txtTen_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTen.Text))
+            {
+                e.Cancel = true;
+                txtTen.Focus();
+                errorProvider1.SetError(txtTen, "Tên nhân viên không được để trống!");
+            }
+            else if (txtTen.Text.Trim().Contains("#"))
+            {
+                e.Cancel = true;
+                txtTen.Focus();
+                errorProvider1.SetError(txtTen, "Tên nhân viên không được chứa ký tự đặc biệt!");
+            }
+            else if (txtTen.Text.Length > 10)
+            {
+                e.Cancel = true;
+                txtTen.Focus();
+                errorProvider1.SetError(txtTen, "Tên nhân viên không được quá 10 kí tự");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtTen, "");
+            }
+        }
+        private static int CalculateAge(DateTime dateOfBirth)
+        {
+            int age = 0;
+            age = DateTime.Now.Year - dateOfBirth.Year;
+            if (DateTime.Now.DayOfYear < dateOfBirth.DayOfYear)
+                age = age - 1;
+
+            return age;
+        }
+
+        private void dateNgaySinh_Validating(object sender, CancelEventArgs e)
+        {
+            if (CalculateAge(dateNgaySinh.DateTime) > 60)
+            {
+                e.Cancel = true;
+                dateNgaySinh.Focus();
+                errorProvider1.SetError(dateNgaySinh, "Ngày sinh không hợp lệ!");
+            }
+            else if (CalculateAge(dateNgaySinh.DateTime) < 18)
+            {
+                e.Cancel = true;
+                dateNgaySinh.Focus();
+                errorProvider1.SetError(dateNgaySinh, "Nhân viên phải lớn hơn hoặc bằng 18 tuổi!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(dateNgaySinh, "");
+            }
+        }
+
+        private void txtLuong_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtLuong.Text))
+            {
+                e.Cancel = true;
+                txtLuong.Focus();
+                errorProvider1.SetError(txtMaNV, "Mã nhân viên không được để trống!");
+            }
+            else if (txtLuong.Text.Trim().Contains(" "))
+            {
+                e.Cancel = true;
+                txtLuong.Focus();
+                errorProvider1.SetError(txtLuong, "Mã nhân viên không được chứa khoảng trắng!");
+            }
+            //else if(int.Parse(txtLuong.Text.Trim()) < 4000000)
+            //{
+            //    e.Cancel = true;
+            //    txtLuong.Focus();
+            //    errorProvider1.SetError(txtLuong, "Lương phải lơn hơn hoặc bằng 4.000.000");
+            //}
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtLuong, "");
+            }
+        }
+
+        private void txtDiaChi_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDiaChi.Text))
+            {
+                e.Cancel = true;
+                txtDiaChi.Focus();
+                errorProvider1.SetError(txtDiaChi, "Địa chỉ không được để trống!");
+            }
+            else if (txtDiaChi.Text.Trim().Contains("#"))
+            {
+                e.Cancel = true;
+                txtDiaChi.Focus();
+                errorProvider1.SetError(txtDiaChi, "Địa chỉ không được chứa ký tự đặc biệt!");
+            }
+            else if (txtDiaChi.Text.Length > 100)
+            {
+                e.Cancel = true;
+                txtDiaChi.Focus();
+                errorProvider1.SetError(txtDiaChi, "Địa chỉ không được quá 100 kí tự");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtDiaChi, "");
+            }
+        }
+        private void txtTen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //if ( !char.IsNumber(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txtHo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -449,5 +449,25 @@ namespace QLVT_DH.SimpleForm
         {
             bdsDH.Position = bdsDH.Find("MasoDDH", cmbMaDDH.Text.Trim());
         }
+
+        private void btnBreak_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string statement = undolist.Pop().ToString();
+            if (statement == "EDIT")
+            {
+                undolist.Pop();
+                bdsPN.CancelEdit();
+            }
+            else
+            {
+                bdsPN.RemoveCurrent();
+            }
+
+            bdsPN.Position = position;
+            btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
+            btnThemCTPN.Enabled = btnSuaCTPN.Enabled = btnXoaCTPN.Enabled = true;
+            gbInfoPN.Enabled = btnBreak.Enabled = false;
+            gridPN.Enabled = true;
+        }
     }
 }

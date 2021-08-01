@@ -41,7 +41,6 @@ namespace QLVT_DH
         // -- FORMS --
         public static frmDangNhap frmDangNhap;
         public static frmMain frmMain;
-        public static frmLapPhieu frmLapPhieu;
         public static frmDonDatHang frmDonDatHang;
         public static frmPhieuXuat frmPhieuXuat;
         public static frmPhieuNhap frmPhieuNhap;

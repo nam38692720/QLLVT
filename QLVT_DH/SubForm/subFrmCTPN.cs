@@ -138,5 +138,33 @@ namespace QLVT_DH.SubForm
             txtMaVT.Text = getDataRow(bdsCTDDH, "MAVT");
             numDG.Value = int.Parse(getDataRow(bdsCTDDH, "DONGIA"));
         }
+
+        private void subFrmCTPN_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if(statement == "THEMCTPN")
+            {
+                bdsCTPN.CancelEdit();
+            }
+        }
+
+        private void numSL_Validating(object sender, CancelEventArgs e)
+        {
+            if (numSL.Value < 0)
+            {
+                e.Cancel = true;
+                numSL.Focus();
+                errorProvider1.SetError(numSL, "Số lượng phải lớn hơn 0!");
+            }
+        }
+
+        private void numDG_Validating(object sender, CancelEventArgs e)
+        {
+            if (numDG.Value == 0)
+            {
+                e.Cancel = true;
+                numDG.Focus();
+                errorProvider1.SetError(numDG, "Đơn giá phải lớn hơn 0!");
+            }
+        }
     }
 }

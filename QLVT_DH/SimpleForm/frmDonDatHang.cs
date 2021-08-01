@@ -427,5 +427,41 @@ namespace QLVT_DH.SimpleForm
             gbInfoDDH.Enabled = btnBreak.Enabled = false;
             gridDDH.Enabled = true;
         }
+
+        private void txtMaDDH_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaDDH.Text))
+            {
+                e.Cancel = true;
+                txtMaDDH.Focus();
+                errorProvider1.SetError(txtMaDDH, "Mã DH không được để trống!");
+            }
+            else if (txtMaDDH.Text.Trim().Contains(" "))
+            {
+                e.Cancel = true;
+                txtMaDDH.Focus();
+                errorProvider1.SetError(txtMaDDH, "Mã DH không được chứa khoảng trắng!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaDDH, "");
+            }
+        }
+
+        private void txtMaNCC_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaNCC.Text))
+            {
+                e.Cancel = true;
+                txtMaNCC.Focus();
+                errorProvider1.SetError(txtMaNCC, "Nhà cung cấp không được để trống!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaNCC, "");
+            }
+        }
     }
 }

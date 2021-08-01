@@ -41,6 +41,7 @@
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
+            this.btnBreak = new DevExpress.XtraBars.BarButtonItem();
             this.btnThemCTDDH = new DevExpress.XtraBars.BarButtonItem();
             this.btnGhiCTDDH = new DevExpress.XtraBars.BarButtonItem();
             this.btnXoaCTDDH = new DevExpress.XtraBars.BarButtonItem();
@@ -80,7 +81,7 @@
             this.cTDDHTableAdapter = new QLVT_DH.DSTableAdapters.CTDDHTableAdapter();
             this.bdsPN = new System.Windows.Forms.BindingSource(this.components);
             this.pHIEUNHAPTableAdapter = new QLVT_DH.DSTableAdapters.PHIEUNHAPTableAdapter();
-            this.btnBreak = new DevExpress.XtraBars.BarButtonItem();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             masoDDHLabel = new System.Windows.Forms.Label();
             nhaCCLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
@@ -98,6 +99,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNCC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // masoDDHLabel
@@ -220,6 +222,15 @@
             this.btnReload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReload.ImageOptions.SvgImage")));
             this.btnReload.Name = "btnReload";
             this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
+            // 
+            // btnBreak
+            // 
+            this.btnBreak.Caption = "Break";
+            this.btnBreak.Id = 11;
+            this.btnBreak.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.Image")));
+            this.btnBreak.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.LargeImage")));
+            this.btnBreak.Name = "btnBreak";
+            this.btnBreak.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBreak_ItemClick);
             // 
             // btnThemCTDDH
             // 
@@ -561,6 +572,7 @@
             this.txtMaNCC.Name = "txtMaNCC";
             this.txtMaNCC.Size = new System.Drawing.Size(195, 22);
             this.txtMaNCC.TabIndex = 3;
+            this.txtMaNCC.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaNCC_Validating);
             // 
             // txtMaDDH
             // 
@@ -569,6 +581,7 @@
             this.txtMaDDH.Name = "txtMaDDH";
             this.txtMaDDH.Size = new System.Drawing.Size(195, 22);
             this.txtMaDDH.TabIndex = 1;
+            this.txtMaDDH.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaDDH_Validating);
             // 
             // cTDDHTableAdapter
             // 
@@ -583,14 +596,9 @@
             // 
             this.pHIEUNHAPTableAdapter.ClearBeforeFill = true;
             // 
-            // btnBreak
+            // errorProvider1
             // 
-            this.btnBreak.Caption = "Break";
-            this.btnBreak.Id = 11;
-            this.btnBreak.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.Image")));
-            this.btnBreak.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.LargeImage")));
-            this.btnBreak.Name = "btnBreak";
-            this.btnBreak.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBreak_ItemClick);
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmDonDatHang
             // 
@@ -624,6 +632,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNCC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -679,5 +688,6 @@
         private DevExpress.XtraBars.BarButtonItem btnGhiCTDDH;
         private DevExpress.XtraBars.BarButtonItem btnXoaCTDDH;
         private DevExpress.XtraBars.BarButtonItem btnBreak;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

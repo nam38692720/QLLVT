@@ -73,6 +73,7 @@
             this.bdsPX = new System.Windows.Forms.BindingSource(this.components);
             this.bdsPN = new System.Windows.Forms.BindingSource(this.components);
             this.bdsDH = new System.Windows.Forms.BindingSource(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             mACNLabel = new System.Windows.Forms.Label();
             tENKHOLabel = new System.Windows.Forms.Label();
             dIACHILabel = new System.Windows.Forms.Label();
@@ -92,6 +93,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDH)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // mACNLabel
@@ -449,6 +451,7 @@
             this.txtMaKho.Name = "txtMaKho";
             this.txtMaKho.Size = new System.Drawing.Size(125, 22);
             this.txtMaKho.TabIndex = 8;
+            this.txtMaKho.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaKho_Validating);
             // 
             // txtDiaChi
             // 
@@ -458,6 +461,7 @@
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Size = new System.Drawing.Size(204, 22);
             this.txtDiaChi.TabIndex = 7;
+            this.txtDiaChi.Validating += new System.ComponentModel.CancelEventHandler(this.txtDiaChi_Validating);
             // 
             // txtTenKho
             // 
@@ -467,6 +471,7 @@
             this.txtTenKho.Name = "txtTenKho";
             this.txtTenKho.Size = new System.Drawing.Size(196, 22);
             this.txtTenKho.TabIndex = 5;
+            this.txtTenKho.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenKho_Validating);
             // 
             // txtMaCN
             // 
@@ -491,6 +496,10 @@
             // 
             this.bdsDH.DataMember = "FK_DATHANG_Kho";
             this.bdsDH.DataSource = this.bdsKho;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmKho
             // 
@@ -525,6 +534,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bdsPX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDH)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -571,5 +581,6 @@
         private DevExpress.XtraEditors.TextEdit txtTenKho;
         private DevExpress.XtraEditors.TextEdit txtMaCN;
         private DevExpress.XtraEditors.TextEdit txtMaKho;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -52,11 +52,11 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.btnTest = new DevExpress.XtraBars.BarButtonItem();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.bdsCTDDH = new System.Windows.Forms.BindingSource(this.components);
             this.bdsDH = new System.Windows.Forms.BindingSource(this.components);
             this.DS = new QLVT_DH.DS();
-            this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.bdsPN = new System.Windows.Forms.BindingSource(this.components);
             this.phieuNhapableAdapter = new QLVT_DH.DSTableAdapters.PHIEUNHAPTableAdapter();
             this.tableAdapterManager = new QLVT_DH.DSTableAdapters.TableAdapterManager();
@@ -225,6 +225,7 @@
             this.btnBreak.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.Image")));
             this.btnBreak.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.LargeImage")));
             this.btnBreak.Name = "btnBreak";
+            this.btnBreak.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBreak_ItemClick);
             // 
             // btnThemCTPN
             // 
@@ -321,21 +322,6 @@
             this.panel1.Size = new System.Drawing.Size(1202, 89);
             this.panel1.TabIndex = 4;
             // 
-            // bdsCTDDH
-            // 
-            this.bdsCTDDH.DataMember = "FK_CTDDH_DatHang";
-            this.bdsCTDDH.DataSource = this.bdsDH;
-            // 
-            // bdsDH
-            // 
-            this.bdsDH.DataMember = "DATHANG";
-            this.bdsDH.DataSource = this.DS;
-            // 
-            // DS
-            // 
-            this.DS.DataSetName = "DS";
-            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cmbChiNhanh
             // 
             this.cmbChiNhanh.FormattingEnabled = true;
@@ -353,6 +339,21 @@
             this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Chi Nhánh";
+            // 
+            // bdsCTDDH
+            // 
+            this.bdsCTDDH.DataMember = "FK_CTDDH_DatHang";
+            this.bdsCTDDH.DataSource = this.bdsDH;
+            // 
+            // bdsDH
+            // 
+            this.bdsDH.DataMember = "DATHANG";
+            this.bdsDH.DataSource = this.DS;
+            // 
+            // DS
+            // 
+            this.DS.DataSetName = "DS";
+            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bdsPN
             // 

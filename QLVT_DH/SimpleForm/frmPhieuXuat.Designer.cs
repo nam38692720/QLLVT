@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuXuat));
             System.Windows.Forms.Label mAPXLabel;
             System.Windows.Forms.Label hOTENKHLabel;
             System.Windows.Forms.Label mAKHOLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuXuat));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -68,17 +68,18 @@
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridPX = new DevExpress.XtraGrid.GridControl();
             this.gcInfoPX = new DevExpress.XtraEditors.GroupControl();
-            this.txtMaPX = new System.Windows.Forms.TextBox();
-            this.txtKH = new DevExpress.XtraEditors.TextEdit();
-            this.txtMaKho = new DevExpress.XtraEditors.TextEdit();
-            this.btnGridKho = new System.Windows.Forms.Button();
-            this.gbInfoPX = new System.Windows.Forms.GroupBox();
+            this.cTPXGridControl = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAPX1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONG = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colDONGIA = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cTPXGridControl = new DevExpress.XtraGrid.GridControl();
+            this.gbInfoPX = new System.Windows.Forms.GroupBox();
+            this.btnGridKho = new System.Windows.Forms.Button();
+            this.txtMaKho = new DevExpress.XtraEditors.TextEdit();
+            this.txtKH = new DevExpress.XtraEditors.TextEdit();
+            this.txtMaPX = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             mAPXLabel = new System.Windows.Forms.Label();
             hOTENKHLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
@@ -91,12 +92,40 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridPX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoPX)).BeginInit();
             this.gcInfoPX.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).BeginInit();
-            this.gbInfoPX.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cTPXGridControl)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+            this.gbInfoPX.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // mAPXLabel
+            // 
+            mAPXLabel.AutoSize = true;
+            mAPXLabel.Location = new System.Drawing.Point(26, 82);
+            mAPXLabel.Name = "mAPXLabel";
+            mAPXLabel.Size = new System.Drawing.Size(47, 17);
+            mAPXLabel.TabIndex = 0;
+            mAPXLabel.Text = "MAPX:";
+            // 
+            // hOTENKHLabel
+            // 
+            hOTENKHLabel.AutoSize = true;
+            hOTENKHLabel.Location = new System.Drawing.Point(26, 142);
+            hOTENKHLabel.Name = "hOTENKHLabel";
+            hOTENKHLabel.Size = new System.Drawing.Size(74, 17);
+            hOTENKHLabel.TabIndex = 2;
+            hOTENKHLabel.Text = "HOTENKH:";
+            // 
+            // mAKHOLabel
+            // 
+            mAKHOLabel.AutoSize = true;
+            mAKHOLabel.Location = new System.Drawing.Point(26, 218);
+            mAKHOLabel.Name = "mAKHOLabel";
+            mAKHOLabel.Size = new System.Drawing.Size(58, 17);
+            mAKHOLabel.TabIndex = 4;
+            mAKHOLabel.Text = "MAKHO:";
             // 
             // barManager1
             // 
@@ -434,86 +463,18 @@
             this.gcInfoPX.TabIndex = 7;
             this.gcInfoPX.Text = "Phiếu xuất";
             // 
-            // txtMaPX
+            // cTPXGridControl
             // 
-            this.txtMaPX.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPX, "MAPX", true));
-            this.txtMaPX.Location = new System.Drawing.Point(115, 82);
-            this.txtMaPX.Name = "txtMaPX";
-            this.txtMaPX.Size = new System.Drawing.Size(125, 23);
-            this.txtMaPX.TabIndex = 1;
-            // 
-            // mAPXLabel
-            // 
-            mAPXLabel.AutoSize = true;
-            mAPXLabel.Location = new System.Drawing.Point(26, 82);
-            mAPXLabel.Name = "mAPXLabel";
-            mAPXLabel.Size = new System.Drawing.Size(47, 17);
-            mAPXLabel.TabIndex = 0;
-            mAPXLabel.Text = "MAPX:";
-            // 
-            // txtKH
-            // 
-            this.txtKH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPX, "HOTENKH", true));
-            this.txtKH.Location = new System.Drawing.Point(115, 139);
-            this.txtKH.MenuManager = this.barManager1;
-            this.txtKH.Name = "txtKH";
-            this.txtKH.Size = new System.Drawing.Size(125, 22);
-            this.txtKH.TabIndex = 3;
-            // 
-            // hOTENKHLabel
-            // 
-            hOTENKHLabel.AutoSize = true;
-            hOTENKHLabel.Location = new System.Drawing.Point(26, 142);
-            hOTENKHLabel.Name = "hOTENKHLabel";
-            hOTENKHLabel.Size = new System.Drawing.Size(74, 17);
-            hOTENKHLabel.TabIndex = 2;
-            hOTENKHLabel.Text = "HOTENKH:";
-            // 
-            // txtMaKho
-            // 
-            this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPX, "MAKHO", true));
-            this.txtMaKho.Location = new System.Drawing.Point(115, 213);
-            this.txtMaKho.MenuManager = this.barManager1;
-            this.txtMaKho.Name = "txtMaKho";
-            this.txtMaKho.Properties.ReadOnly = true;
-            this.txtMaKho.Size = new System.Drawing.Size(125, 22);
-            this.txtMaKho.TabIndex = 5;
-            // 
-            // mAKHOLabel
-            // 
-            mAKHOLabel.AutoSize = true;
-            mAKHOLabel.Location = new System.Drawing.Point(26, 218);
-            mAKHOLabel.Name = "mAKHOLabel";
-            mAKHOLabel.Size = new System.Drawing.Size(58, 17);
-            mAKHOLabel.TabIndex = 4;
-            mAKHOLabel.Text = "MAKHO:";
-            // 
-            // btnGridKho
-            // 
-            this.btnGridKho.Location = new System.Drawing.Point(266, 215);
-            this.btnGridKho.Name = "btnGridKho";
-            this.btnGridKho.Size = new System.Drawing.Size(35, 23);
-            this.btnGridKho.TabIndex = 6;
-            this.btnGridKho.Text = "...";
-            this.btnGridKho.UseVisualStyleBackColor = true;
-            this.btnGridKho.Click += new System.EventHandler(this.btnGridKho_Click);
-            // 
-            // gbInfoPX
-            // 
-            this.gbInfoPX.Controls.Add(this.btnGridKho);
-            this.gbInfoPX.Controls.Add(mAKHOLabel);
-            this.gbInfoPX.Controls.Add(this.txtMaKho);
-            this.gbInfoPX.Controls.Add(hOTENKHLabel);
-            this.gbInfoPX.Controls.Add(this.txtKH);
-            this.gbInfoPX.Controls.Add(mAPXLabel);
-            this.gbInfoPX.Controls.Add(this.txtMaPX);
-            this.gbInfoPX.Dock = System.Windows.Forms.DockStyle.Left;
-            this.gbInfoPX.Location = new System.Drawing.Point(2, 28);
-            this.gbInfoPX.Name = "gbInfoPX";
-            this.gbInfoPX.Size = new System.Drawing.Size(329, 299);
-            this.gbInfoPX.TabIndex = 0;
-            this.gbInfoPX.TabStop = false;
-            this.gbInfoPX.Text = "Thông tin";
+            this.cTPXGridControl.DataSource = this.bdsCTPX;
+            this.cTPXGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cTPXGridControl.Location = new System.Drawing.Point(331, 28);
+            this.cTPXGridControl.MainView = this.gridView2;
+            this.cTPXGridControl.MenuManager = this.barManager1;
+            this.cTPXGridControl.Name = "cTPXGridControl";
+            this.cTPXGridControl.Size = new System.Drawing.Size(820, 299);
+            this.cTPXGridControl.TabIndex = 1;
+            this.cTPXGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
             // 
             // gridView2
             // 
@@ -569,18 +530,65 @@
             this.colDONGIA.VisibleIndex = 3;
             this.colDONGIA.Width = 94;
             // 
-            // cTPXGridControl
+            // gbInfoPX
             // 
-            this.cTPXGridControl.DataSource = this.bdsCTPX;
-            this.cTPXGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cTPXGridControl.Location = new System.Drawing.Point(331, 28);
-            this.cTPXGridControl.MainView = this.gridView2;
-            this.cTPXGridControl.MenuManager = this.barManager1;
-            this.cTPXGridControl.Name = "cTPXGridControl";
-            this.cTPXGridControl.Size = new System.Drawing.Size(820, 299);
-            this.cTPXGridControl.TabIndex = 1;
-            this.cTPXGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.gbInfoPX.Controls.Add(this.btnGridKho);
+            this.gbInfoPX.Controls.Add(mAKHOLabel);
+            this.gbInfoPX.Controls.Add(this.txtMaKho);
+            this.gbInfoPX.Controls.Add(hOTENKHLabel);
+            this.gbInfoPX.Controls.Add(this.txtKH);
+            this.gbInfoPX.Controls.Add(mAPXLabel);
+            this.gbInfoPX.Controls.Add(this.txtMaPX);
+            this.gbInfoPX.Dock = System.Windows.Forms.DockStyle.Left;
+            this.gbInfoPX.Location = new System.Drawing.Point(2, 28);
+            this.gbInfoPX.Name = "gbInfoPX";
+            this.gbInfoPX.Size = new System.Drawing.Size(329, 299);
+            this.gbInfoPX.TabIndex = 0;
+            this.gbInfoPX.TabStop = false;
+            this.gbInfoPX.Text = "Thông tin";
+            // 
+            // btnGridKho
+            // 
+            this.btnGridKho.Location = new System.Drawing.Point(266, 215);
+            this.btnGridKho.Name = "btnGridKho";
+            this.btnGridKho.Size = new System.Drawing.Size(35, 23);
+            this.btnGridKho.TabIndex = 6;
+            this.btnGridKho.Text = "...";
+            this.btnGridKho.UseVisualStyleBackColor = true;
+            this.btnGridKho.Click += new System.EventHandler(this.btnGridKho_Click);
+            // 
+            // txtMaKho
+            // 
+            this.txtMaKho.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPX, "MAKHO", true));
+            this.txtMaKho.Location = new System.Drawing.Point(115, 213);
+            this.txtMaKho.MenuManager = this.barManager1;
+            this.txtMaKho.Name = "txtMaKho";
+            this.txtMaKho.Properties.ReadOnly = true;
+            this.txtMaKho.Size = new System.Drawing.Size(125, 22);
+            this.txtMaKho.TabIndex = 5;
+            // 
+            // txtKH
+            // 
+            this.txtKH.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsPX, "HOTENKH", true));
+            this.txtKH.Location = new System.Drawing.Point(115, 139);
+            this.txtKH.MenuManager = this.barManager1;
+            this.txtKH.Name = "txtKH";
+            this.txtKH.Size = new System.Drawing.Size(125, 22);
+            this.txtKH.TabIndex = 3;
+            this.txtKH.Validating += new System.ComponentModel.CancelEventHandler(this.txtKH_Validating);
+            // 
+            // txtMaPX
+            // 
+            this.txtMaPX.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPX, "MAPX", true));
+            this.txtMaPX.Location = new System.Drawing.Point(115, 82);
+            this.txtMaPX.Name = "txtMaPX";
+            this.txtMaPX.Size = new System.Drawing.Size(125, 23);
+            this.txtMaPX.TabIndex = 1;
+            this.txtMaPX.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaPX_Validating);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmPhieuXuat
             // 
@@ -608,12 +616,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridPX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoPX)).EndInit();
             this.gcInfoPX.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cTPXGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.gbInfoPX.ResumeLayout(false);
             this.gbInfoPX.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cTPXGridControl)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -667,5 +676,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ComboBox cmbChiNhanh;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

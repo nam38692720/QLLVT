@@ -34,7 +34,9 @@
   <ItemGroup>
     <Reference Include="DevExpress.BonusSkins.v19.2" />
     <Reference Include="DevExpress.Charts.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.CodeParser.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Data.v19.2" />
+    <Reference Include="DevExpress.DataAccess.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Office.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Pdf.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.PivotGrid.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -43,6 +45,7 @@
     <Reference Include="DevExpress.RichEdit.v19.2.Export, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Utils.v19.2" />
     <Reference Include="DevExpress.Utils.v19.2.UI, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.Xpo.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.XtraBars.v19.2" />
     <Reference Include="DevExpress.Sparkline.v19.2.Core" />
     <Reference Include="DevExpress.XtraCharts.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
@@ -77,10 +80,46 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>QLVTDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="QLVTDataSet1.Designer.cs">
+    <Compile Include="QLVT_RP.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>QLVTDataSet1.xsd</DependentUpon>
+      <DependentUpon>QLVT_RP.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmSupportCommon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmSupportCommon.Designer.cs">
+      <DependentUpon>frmSupportCommon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmSupport_THNX.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmSupport_THNX.Designer.cs">
+      <DependentUpon>frmSupport_THNX.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xtrp_DDH_ChuaCo_PN.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xtrp_DDH_ChuaCo_PN.Designer.cs">
+      <DependentUpon>xtrp_DDH_ChuaCo_PN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xtrp_DSNV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xtrp_DSNV.Designer.cs">
+      <DependentUpon>xtrp_DSNV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xtrp_DSVT.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xtrp_DSVT.Designer.cs">
+      <DependentUpon>xtrp_DSVT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\xtrp_REPORTTonghopNhapXuat_NV.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\xtrp_REPORTTonghopNhapXuat_NV.Designer.cs">
+      <DependentUpon>xtrp_REPORTTonghopNhapXuat_NV.cs</DependentUpon>
     </Compile>
     <Compile Include="SimpleForm\frmDangNhap.cs">
       <SubType>Form</SubType>
@@ -99,12 +138,6 @@
     </Compile>
     <Compile Include="SimpleForm\frmKho.Designer.cs">
       <DependentUpon>frmKho.cs</DependentUpon>
-    </Compile>
-    <Compile Include="SimpleForm\frmLapPhieu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SimpleForm\frmLapPhieu.Designer.cs">
-      <DependentUpon>frmLapPhieu.cs</DependentUpon>
     </Compile>
     <Compile Include="SimpleForm\frmMain.cs">
       <SubType>Form</SubType>
@@ -160,12 +193,6 @@
     <Compile Include="SubForm\subFrmKho.Designer.cs">
       <DependentUpon>subFrmKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="XtraReport1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="XtraReport1.Designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -176,6 +203,24 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Reports\frmSupportCommon.resx">
+      <DependentUpon>frmSupportCommon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmSupport_THNX.resx">
+      <DependentUpon>frmSupport_THNX.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xtrp_DDH_ChuaCo_PN.resx">
+      <DependentUpon>xtrp_DDH_ChuaCo_PN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xtrp_DSNV.resx">
+      <DependentUpon>xtrp_DSNV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xtrp_DSVT.resx">
+      <DependentUpon>xtrp_DSVT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\xtrp_REPORTTonghopNhapXuat_NV.resx">
+      <DependentUpon>xtrp_REPORTTonghopNhapXuat_NV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SimpleForm\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,9 +229,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SimpleForm\frmKho.resx">
       <DependentUpon>frmKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SimpleForm\frmLapPhieu.resx">
-      <DependentUpon>frmLapPhieu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SimpleForm\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -214,9 +256,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SubForm\subFrmKho.resx">
       <DependentUpon>subFrmKho.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.config" />
     <None Include="DS.xsc">
@@ -250,16 +289,16 @@
     <None Include="QLVTDataSet.xss">
       <DependentUpon>QLVTDataSet.xsd</DependentUpon>
     </None>
-    <None Include="QLVTDataSet1.xsc">
-      <DependentUpon>QLVTDataSet1.xsd</DependentUpon>
+    <None Include="QLVT_RP.xsc">
+      <DependentUpon>QLVT_RP.xsd</DependentUpon>
     </None>
-    <None Include="QLVTDataSet1.xsd">
+    <None Include="QLVT_RP.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>QLVTDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>QLVT_RP.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="QLVTDataSet1.xss">
-      <DependentUpon>QLVTDataSet1.xsd</DependentUpon>
+    <None Include="QLVT_RP.xss">
+      <DependentUpon>QLVT_RP.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup />
