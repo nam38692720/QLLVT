@@ -88,6 +88,9 @@ namespace QLVT_DH
                 Program.frmDonDatHang.Show();
                 //Program.frmLapPhieu.btnSwitch.Links[0].Caption = "Đặt Hàng";
             }
+
+
+            
         }
 
         private void barButtonItem_DSVT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -157,11 +160,38 @@ namespace QLVT_DH
             }
         }
 
-        //public bool checkFromExit(Form form)
-        //{
-        //    Form formCheck = this.CheckExists(typeof(form));
-        //    if (formCheck != null) return true;
-        //    else return false;
-        //}
+        private void barButtonItem_CreateAccount_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            //Form form = this.CheckExists(typeof(frmTaoTaiKhoan));
+            //if (form != null) form.Activate();
+            //else
+            //{
+            //    frmTaoTaiKhoan formTaoTaiKhoan = new frmTaoTaiKhoan();
+            //    formTaoTaiKhoan.MdiParent = this;
+            //    formTaoTaiKhoan.Show();
+            //}
+
+            Form form1 = this.CheckExists(typeof(frmCreateAcc));
+            if (form1 != null) form1.Activate();
+            else
+            {
+                Program.FrmCreateAcc = new frmCreateAcc();
+                Program.FrmCreateAcc.MdiParent = this;
+                Program.FrmCreateAcc.Show();
+                //Program.frmLapPhieu.btnSwitch.Links[0].Caption = "Đặt Hàng";
+            }
+        }
+
+        private void barButtonItem_listProduct_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form form = this.CheckExists(typeof(frmVatTu));
+            if (form != null) form.Activate();
+            else
+            {
+                Program.FrmVatTu = new frmVatTu();
+                Program.FrmVatTu.MdiParent = this;
+                Program.FrmVatTu.Show();
+            }
+        }
     }
 }

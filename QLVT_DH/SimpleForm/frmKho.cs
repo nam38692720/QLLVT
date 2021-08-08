@@ -54,7 +54,7 @@ namespace QLVT_DH.SimpleForm
 
             if (Program.mGroup == "CONGTY")
             {
-                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = btnSua.Enabled = false;
                 txtTenKho.Enabled = txtMaKho.Enabled = txtDiaChi.Enabled = false;
             }
             else if (Program.mGroup == "CHINHANH" || Program.mGroup == "USER")
@@ -391,6 +391,35 @@ namespace QLVT_DH.SimpleForm
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtDiaChi, "");
+            }
+        }
+
+        private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
+
+            // Lấy tên server
+            Program.servername = cmbChiNhanh.SelectedValue.ToString();
+
+            // Nếu tên server khác với tên server ngoài đăng nhập, thì ta phải sử dụng HTKN
+            if (cmbChiNhanh.SelectedIndex != Program.mChiNhanh)
+            {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+            }
+
+            if (Program.KetNoi() == 0)
+                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            else
+            {
+                this.khoTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.khoTableAdapter.Fill(this.DS.Kho);
+                maCN = ((DataRowView)bdsKho[0])["MACN"].ToString();
             }
         }
     }

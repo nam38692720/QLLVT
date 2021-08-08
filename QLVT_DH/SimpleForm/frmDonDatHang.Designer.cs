@@ -42,9 +42,6 @@
             this.btnUndo = new DevExpress.XtraBars.BarButtonItem();
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
             this.btnBreak = new DevExpress.XtraBars.BarButtonItem();
-            this.btnThemCTDDH = new DevExpress.XtraBars.BarButtonItem();
-            this.btnGhiCTDDH = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXoaCTDDH = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -67,6 +64,10 @@
             this.colMANV = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gcInfoDDH = new System.Windows.Forms.GroupBox();
             this.cTDDHGridControl = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctmsThemCTDDH = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmsGhiCTDDH = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmsXoaCTDDH = new System.Windows.Forms.ToolStripMenuItem();
             this.bdsCTDDH = new System.Windows.Forms.BindingSource(this.components);
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMasoDDH1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -93,6 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvDH)).BeginInit();
             this.gcInfoDDH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHGridControl)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.gbInfoDDH.SuspendLayout();
@@ -147,9 +149,6 @@
             this.btnReload,
             this.btnSua,
             this.btnThoat,
-            this.btnThemCTDDH,
-            this.btnGhiCTDDH,
-            this.btnXoaCTDDH,
             this.btnBreak});
             this.barManager1.MaxItemId = 12;
             this.barManager1.StatusBar = this.bar3;
@@ -168,9 +167,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnUndo, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnBreak, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThemCTDDH, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGhiCTDDH, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoaCTDDH, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
@@ -231,33 +227,6 @@
             this.btnBreak.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.LargeImage")));
             this.btnBreak.Name = "btnBreak";
             this.btnBreak.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBreak_ItemClick);
-            // 
-            // btnThemCTDDH
-            // 
-            this.btnThemCTDDH.Caption = "Thêm CTĐĐH";
-            this.btnThemCTDDH.Id = 7;
-            this.btnThemCTDDH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThemCTDDH.ImageOptions.Image")));
-            this.btnThemCTDDH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThemCTDDH.ImageOptions.LargeImage")));
-            this.btnThemCTDDH.Name = "btnThemCTDDH";
-            this.btnThemCTDDH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThemCTDDH_ItemClick);
-            // 
-            // btnGhiCTDDH
-            // 
-            this.btnGhiCTDDH.Caption = "Ghi CTDĐH";
-            this.btnGhiCTDDH.Id = 8;
-            this.btnGhiCTDDH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnGhiCTDDH.ImageOptions.Image")));
-            this.btnGhiCTDDH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnGhiCTDDH.ImageOptions.LargeImage")));
-            this.btnGhiCTDDH.Name = "btnGhiCTDDH";
-            this.btnGhiCTDDH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnGhiCTDDH_ItemClick);
-            // 
-            // btnXoaCTDDH
-            // 
-            this.btnXoaCTDDH.Caption = "Xóa CTDDH";
-            this.btnXoaCTDDH.Id = 9;
-            this.btnXoaCTDDH.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaCTDDH.ImageOptions.Image")));
-            this.btnXoaCTDDH.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoaCTDDH.ImageOptions.LargeImage")));
-            this.btnXoaCTDDH.Name = "btnXoaCTDDH";
-            this.btnXoaCTDDH.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoaCTDDH_ItemClick);
             // 
             // btnThoat
             // 
@@ -460,6 +429,7 @@
             // 
             // cTDDHGridControl
             // 
+            this.cTDDHGridControl.ContextMenuStrip = this.contextMenuStrip1;
             this.cTDDHGridControl.DataSource = this.bdsCTDDH;
             this.cTDDHGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cTDDHGridControl.Location = new System.Drawing.Point(467, 18);
@@ -470,6 +440,37 @@
             this.cTDDHGridControl.TabIndex = 1;
             this.cTDDHGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctmsThemCTDDH,
+            this.ctmsGhiCTDDH,
+            this.ctmsXoaCTDDH});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
+            // 
+            // ctmsThemCTDDH
+            // 
+            this.ctmsThemCTDDH.Name = "ctmsThemCTDDH";
+            this.ctmsThemCTDDH.Size = new System.Drawing.Size(210, 24);
+            this.ctmsThemCTDDH.Text = "Thêm CTDĐH";
+            this.ctmsThemCTDDH.Click += new System.EventHandler(this.ctmsThemCTDDH_Click);
+            // 
+            // ctmsGhiCTDDH
+            // 
+            this.ctmsGhiCTDDH.Name = "ctmsGhiCTDDH";
+            this.ctmsGhiCTDDH.Size = new System.Drawing.Size(210, 24);
+            this.ctmsGhiCTDDH.Text = "Ghi CTĐH";
+            this.ctmsGhiCTDDH.Click += new System.EventHandler(this.ctsmGhiCTDDH_Click);
+            // 
+            // ctmsXoaCTDDH
+            // 
+            this.ctmsXoaCTDDH.Name = "ctmsXoaCTDDH";
+            this.ctmsXoaCTDDH.Size = new System.Drawing.Size(210, 24);
+            this.ctmsXoaCTDDH.Text = "Xóa CTĐH";
+            this.ctmsXoaCTDDH.Click += new System.EventHandler(this.ctsmXoaCTDDH_Click);
             // 
             // bdsCTDDH
             // 
@@ -563,6 +564,7 @@
             this.txtMaKho.Size = new System.Drawing.Size(195, 22);
             this.txtMaKho.TabIndex = 5;
             this.txtMaKho.UseWaitCursor = true;
+            this.txtMaKho.EditValueChanged += new System.EventHandler(this.txtMaKho_EditValueChanged);
             // 
             // txtMaNCC
             // 
@@ -625,6 +627,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gvDH)).EndInit();
             this.gcInfoDDH.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cTDDHGridControl)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTDDH)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.gbInfoDDH.ResumeLayout(false);
@@ -684,10 +687,11 @@
         private DevExpress.XtraGrid.Columns.GridColumn colDONGIA;
         private System.Windows.Forms.BindingSource bdsPN;
         private DSTableAdapters.PHIEUNHAPTableAdapter pHIEUNHAPTableAdapter;
-        private DevExpress.XtraBars.BarButtonItem btnThemCTDDH;
-        private DevExpress.XtraBars.BarButtonItem btnGhiCTDDH;
-        private DevExpress.XtraBars.BarButtonItem btnXoaCTDDH;
         private DevExpress.XtraBars.BarButtonItem btnBreak;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ctmsThemCTDDH;
+        private System.Windows.Forms.ToolStripMenuItem ctmsGhiCTDDH;
+        private System.Windows.Forms.ToolStripMenuItem ctmsXoaCTDDH;
     }
 }

@@ -44,11 +44,16 @@ namespace QLVT_DH
         public static frmDonDatHang frmDonDatHang;
         public static frmPhieuXuat frmPhieuXuat;
         public static frmPhieuNhap frmPhieuNhap;
+        public static frmTaoTaiKhoan frmTaoTaiKhoan;
+        public static frmCreateAcc FrmCreateAcc;
+        public static frmVatTu FrmVatTu;
 
         public static subFrmKho subFrmKho;
         public static subFrmCTDDH subFrmCTDDH;
         public static subFrmCTPX subFrmCTPX;
         public static subFrmCTPN subFrmCTPN;
+        public static subFrmNV subFrmNV;
+
 
         public static BindingSource bds_dspm = new BindingSource();
 

@@ -63,7 +63,8 @@ namespace QLVT_DH.SimpleForm
             if (Program.mGroup == "CONGTY")
             {
                 cmbChiNhanh.Enabled = true;  // bật tắt theo phân quyền
-                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = btnSua.Enabled = false;
+                btnThemCTPN.Enabled = btnSuaCTPN.Enabled = btnXoaCTPN.Enabled = false;
                 gbInfoPN.Enabled = false;
             }
             else if (Program.mGroup == "CHINHANH" || Program.mGroup == "USER")
@@ -468,6 +469,45 @@ namespace QLVT_DH.SimpleForm
             btnThemCTPN.Enabled = btnSuaCTPN.Enabled = btnXoaCTPN.Enabled = true;
             gbInfoPN.Enabled = btnBreak.Enabled = false;
             gridPN.Enabled = true;
+        }
+
+        private void ctmsThemCPN_Click(object sender, EventArgs e)
+        {
+            bdsDH.Position = bdsDH.Find("MasoDDH", cmbMaDDH.Text.Trim());
+            if (bdsCTDDH.Count == 0)
+            {
+                MessageBox.Show("Đơn đặt hàng này không có sản phẩm nên không thể thêm chi tiết phiếu nhập", "Lỗi",
+                       MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            Program.subFrmCTPN = new subFrmCTPN();
+            Program.subFrmCTPN.Show();
+            undolist.Push("THEMCTPN");
+        }
+
+        private void ctmsSuaCTPN_Click(object sender, EventArgs e)
+        {
+            if (bdsCTPN.Count == 0)
+            {
+                MessageBox.Show("Phiếu nhập này không có chi tiết phiếu nhập để sửa", "Lỗi",
+                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Program.subFrmCTPN = new subFrmCTPN();
+            Program.subFrmCTPN.Show();
+            undolist.Push("SUACTPN");
+        }
+
+        private void ctmsXoaCTPN_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn có thực sự muốn xóa chi tiết phiếu nhập này không", "Xác nhận",
+                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                bdsCTPN.RemoveCurrent();
+                this.cTPNTableAdapter.Update(this.DS.CTPN);
+            }
         }
     }
 }

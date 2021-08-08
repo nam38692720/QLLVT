@@ -107,6 +107,7 @@
             this.barButtonItem_listProduct.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_listProduct.ImageOptions.SvgImage")));
             this.barButtonItem_listProduct.Name = "barButtonItem_listProduct";
             this.barButtonItem_listProduct.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem_listProduct.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_listProduct_ItemClick);
             // 
             // barButtonItem_ListKho
             // 
@@ -134,6 +135,7 @@
             this.barButtonItem_CreateAccount.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_CreateAccount.ImageOptions.SvgImage")));
             this.barButtonItem_CreateAccount.Name = "barButtonItem_CreateAccount";
             this.barButtonItem_CreateAccount.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
+            this.barButtonItem_CreateAccount.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_CreateAccount_ItemClick);
             // 
             // barButtonItem_out
             // 

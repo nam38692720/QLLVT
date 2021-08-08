@@ -38,16 +38,25 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.txtDangNhap = new System.Windows.Forms.TextBox();
             this.cmbChiNhanh = new System.Windows.Forms.ComboBox();
-            this.qLVTDataSet = new QLVT_DH.QLVTDataSet();
-            this.qLVTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bds_DSPM = new System.Windows.Forms.BindingSource(this.components);
+            this.qLVTDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qLVTDataSet = new QLVT_DH.QLVTDataSet();
             this.v_DS_PHANMANHTableAdapter = new QLVT_DH.QLVTDataSetTableAdapters.V_DS_PHANMANHTableAdapter();
             tENCNLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLVTDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLVTDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_DSPM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVTDataSetBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVTDataSet)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tENCNLabel
+            // 
+            tENCNLabel.AutoSize = true;
+            tENCNLabel.Location = new System.Drawing.Point(58, 47);
+            tENCNLabel.Name = "tENCNLabel";
+            tENCNLabel.Size = new System.Drawing.Size(51, 17);
+            tENCNLabel.TabIndex = 0;
+            tENCNLabel.Text = "TENCN";
             // 
             // panel1
             // 
@@ -115,15 +124,6 @@
             this.txtDangNhap.Size = new System.Drawing.Size(155, 23);
             this.txtDangNhap.TabIndex = 2;
             // 
-            // tENCNLabel
-            // 
-            tENCNLabel.AutoSize = true;
-            tENCNLabel.Location = new System.Drawing.Point(58, 47);
-            tENCNLabel.Name = "tENCNLabel";
-            tENCNLabel.Size = new System.Drawing.Size(51, 17);
-            tENCNLabel.TabIndex = 0;
-            tENCNLabel.Text = "TENCN";
-            // 
             // cmbChiNhanh
             // 
             this.cmbChiNhanh.DataSource = this.bds_DSPM;
@@ -137,20 +137,20 @@
             this.cmbChiNhanh.ValueMember = "TENSERVER";
             this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.cmbChiNhanh_SelectedIndexChanged_1);
             // 
-            // qLVTDataSet
+            // bds_DSPM
             // 
-            this.qLVTDataSet.DataSetName = "QLVTDataSet";
-            this.qLVTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.bds_DSPM.DataMember = "V_DS_PHANMANH";
+            this.bds_DSPM.DataSource = this.qLVTDataSetBindingSource;
             // 
             // qLVTDataSetBindingSource
             // 
             this.qLVTDataSetBindingSource.DataSource = this.qLVTDataSet;
             this.qLVTDataSetBindingSource.Position = 0;
             // 
-            // bds_DSPM
+            // qLVTDataSet
             // 
-            this.bds_DSPM.DataMember = "V_DS_PHANMANH";
-            this.bds_DSPM.DataSource = this.qLVTDataSetBindingSource;
+            this.qLVTDataSet.DataSetName = "QLVTDataSet";
+            this.qLVTDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // v_DS_PHANMANHTableAdapter
             // 
@@ -167,9 +167,9 @@
             this.Load += new System.EventHandler(this.frmDangNhap_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.qLVTDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qLVTDataSetBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bds_DSPM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVTDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.qLVTDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

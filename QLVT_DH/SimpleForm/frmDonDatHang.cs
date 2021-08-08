@@ -58,7 +58,8 @@ namespace QLVT_DH.SimpleForm
             if (Program.mGroup == "CONGTY")
             {
                 cmbChiNhanh.Enabled = true;  // bật tắt theo phân quyền
-                btnThem.Enabled = btnXoa.Enabled = btnUndo.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnSua.Enabled = false;
+                ctmsThemCTDDH.Enabled = ctmsGhiCTDDH.Enabled = ctmsXoaCTDDH.Enabled = false;
                 gbInfoDDH.Enabled  = false;
             }
             else if (Program.mGroup == "CHINHANH" || Program.mGroup == "USER")
@@ -74,7 +75,8 @@ namespace QLVT_DH.SimpleForm
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnReload.Enabled = btnThemCTDDH.Enabled = btnGhiCTDDH.Enabled = btnXoaCTDDH.Enabled = false;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnReload.Enabled = false;
+            ctmsThemCTDDH.Enabled = ctmsGhiCTDDH.Enabled = ctmsXoaCTDDH.Enabled = false;
             txtMaDDH.Enabled = btnBreak.Enabled = true;
             
             gbInfoDDH.Enabled= btnGhi.Enabled = true;
@@ -96,7 +98,8 @@ namespace QLVT_DH.SimpleForm
                 this.datHangTableAdapter.Update(this.DS.DATHANG);
                 bdsDH.Position = position;
 
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = btnThemCTDDH.Enabled = btnGhiCTDDH.Enabled = btnXoaCTDDH.Enabled = true;
+                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
+                ctmsThemCTDDH.Enabled = ctmsGhiCTDDH.Enabled = ctmsXoaCTDDH.Enabled = true;
                 gbInfoDDH.Enabled = btnGhi.Enabled = false;
                 gridDDH.Enabled = true;
                 return;
@@ -164,7 +167,7 @@ namespace QLVT_DH.SimpleForm
                             undolist.Push("INSERT");
                             bdsDH.Position = position;
 
-                            btnThemCTDDH.Enabled = btnGhiCTDDH.Enabled = btnXoaCTDDH.Enabled = true;
+                            ctmsThemCTDDH.Enabled = ctmsGhiCTDDH.Enabled = ctmsXoaCTDDH.Enabled = true;
                             /*btnSua.Enabled =*/ btnThoat.Enabled = true;
                             btnGhi.Enabled = false; 
                         }
@@ -309,7 +312,7 @@ namespace QLVT_DH.SimpleForm
         {
             position = bdsDH.Position;
             txtMaDDH.Enabled = false;
-            btnThemCTDDH.Enabled = btnGhiCTDDH.Enabled = btnXoaCTDDH.Enabled = false;
+            ctmsThemCTDDH.Enabled = ctmsGhiCTDDH.Enabled = ctmsXoaCTDDH.Enabled = false;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
             gbInfoDDH.Enabled = btnGhi.Enabled = true;
             gridDDH.Enabled = false;
@@ -423,7 +426,7 @@ namespace QLVT_DH.SimpleForm
 
             bdsDH.Position = position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
-            btnThemCTDDH.Enabled = btnGhiCTDDH.Enabled = btnXoaCTDDH.Enabled = true;
+            ctmsThemCTDDH.Enabled = ctmsGhiCTDDH.Enabled = ctmsXoaCTDDH.Enabled = true;
             gbInfoDDH.Enabled = btnBreak.Enabled = false;
             gridDDH.Enabled = true;
         }
@@ -461,6 +464,40 @@ namespace QLVT_DH.SimpleForm
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtMaNCC, "");
+            }
+        }
+
+        private void txtMaKho_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ctmsThemCTDDH_Click(object sender, EventArgs e)
+        {
+            Program.subFrmCTDDH = new subFrmCTDDH();
+            Program.subFrmCTDDH.Show();
+        }
+
+        private void ctsmGhiCTDDH_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn có thực sự muốn ghi dữ liệu này vào database?", "Xác nhận",
+                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                this.bdsCTDDH.EndEdit();
+                this.cTDDHTableAdapter.Update(this.DS.CTDDH);
+                bdsCTDDH.Position = position;
+            }
+        }
+
+        private void ctsmXoaCTDDH_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn có thực sự muốn xóa chi tiết đơn đặt hàng này không?", "Xác nhận",
+                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                bdsCTDDH.RemoveCurrent();
+                this.cTDDHTableAdapter.Update(this.DS.CTDDH);
             }
         }
     }

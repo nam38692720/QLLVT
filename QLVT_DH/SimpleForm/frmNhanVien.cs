@@ -451,7 +451,7 @@ namespace QLVT_DH.SimpleForm
             if (Program.mGroup == "CONGTY")
             {
                 cmbChiNhanh.Enabled = true;  // bật tắt theo phân quyền
-                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnSua.Enabled = false;
                 btnUndo.Enabled = btnChuyenChiNhanh.Enabled = gcInfoNhanVien.Enabled = false;
             }
             else if (Program.mGroup == "CHINHANH" || Program.mGroup == "USER")
@@ -675,6 +675,46 @@ namespace QLVT_DH.SimpleForm
             if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void cmbChiNhanh_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbChiNhanh.SelectedValue.ToString() == "System.Data.DataRowView") return;
+
+            // Lấy tên server
+            Program.servername = cmbChiNhanh.SelectedValue.ToString();
+
+            // Nếu tên server khác với tên server ngoài đăng nhập, thì ta phải sử dụng HTKN
+            if (cmbChiNhanh.SelectedIndex != Program.mChiNhanh)
+            {
+                Program.mlogin = Program.remotelogin;
+                Program.password = Program.remotepassword;
+            }
+            else
+            {
+                Program.mlogin = Program.mloginDN;
+                Program.password = Program.passwordDN;
+            }
+
+            if (Program.KetNoi() == 0)
+                MessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
+            else
+            {
+                // TODO: This line of code loads data into the 'dS.NHANVIEN' table. You can move, or remove it, as needed.
+                this.nhanvienTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.nhanvienTableAdapter.Fill(this.DS.NHANVIEN);
+
+
+                // TODO: This line of code loads data into the 'DS.DATHANG' table. You can move, or remove it, as needed.
+                this.datHangTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.datHangTableAdapter.Fill(this.DS.DATHANG);
+                // TODO: This line of code loads data into the 'DS.PHIEUNHAP' table. You can move, or remove it, as needed.
+                this.phieuNhapTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.phieuNhapTableAdapter.Fill(this.DS.PHIEUNHAP);
+                // TODO: This line of code loads data into the 'DS.PHIEUXUAT' table. You can move, or remove it, as needed.
+                this.phieuXuatTableAdapter.Connection.ConnectionString = Program.connstr;
+                this.phieuXuatTableAdapter.Fill(this.DS.PHIEUXUAT);
             }
         }
     }

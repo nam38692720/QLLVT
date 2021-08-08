@@ -41,9 +41,6 @@
             this.btnGhi = new DevExpress.XtraBars.BarButtonItem();
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
             this.btnBreak = new DevExpress.XtraBars.BarButtonItem();
-            this.btnThemCTPN = new DevExpress.XtraBars.BarButtonItem();
-            this.btnSuaCTPN = new DevExpress.XtraBars.BarButtonItem();
-            this.btnXoaCTPN = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -85,6 +82,10 @@
             this.cTPNTableAdapter = new QLVT_DH.DSTableAdapters.CTPNTableAdapter();
             this.dATHANGTableAdapter = new QLVT_DH.DSTableAdapters.DATHANGTableAdapter();
             this.cTDDHTableAdapter = new QLVT_DH.DSTableAdapters.CTDDHTableAdapter();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctmsThemCPN = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmsSuaCTPN = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmsXoaCTPN = new System.Windows.Forms.ToolStripMenuItem();
             mAPNLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -104,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTPN)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mAPNLabel
@@ -142,9 +144,6 @@
             this.btnGhi,
             this.btnReload,
             this.btnThoat,
-            this.btnThemCTPN,
-            this.btnSuaCTPN,
-            this.btnXoaCTPN,
             this.btnBreak,
             this.btnTest});
             this.barManager1.MaxItemId = 12;
@@ -164,9 +163,6 @@
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnGhi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnBreak, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThemCTPN, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnSuaCTPN, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
-            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnXoaCTPN, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
@@ -226,33 +222,6 @@
             this.btnBreak.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnBreak.ImageOptions.LargeImage")));
             this.btnBreak.Name = "btnBreak";
             this.btnBreak.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnBreak_ItemClick);
-            // 
-            // btnThemCTPN
-            // 
-            this.btnThemCTPN.Caption = "Thêm CTPN";
-            this.btnThemCTPN.Id = 7;
-            this.btnThemCTPN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnThemCTPN.ImageOptions.Image")));
-            this.btnThemCTPN.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnThemCTPN.ImageOptions.LargeImage")));
-            this.btnThemCTPN.Name = "btnThemCTPN";
-            this.btnThemCTPN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnThemCTPN_ItemClick);
-            // 
-            // btnSuaCTPN
-            // 
-            this.btnSuaCTPN.Caption = "Sửa CTPN";
-            this.btnSuaCTPN.Id = 8;
-            this.btnSuaCTPN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnSuaCTPN.ImageOptions.Image")));
-            this.btnSuaCTPN.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnSuaCTPN.ImageOptions.LargeImage")));
-            this.btnSuaCTPN.Name = "btnSuaCTPN";
-            this.btnSuaCTPN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnSuaCTPN_ItemClick);
-            // 
-            // btnXoaCTPN
-            // 
-            this.btnXoaCTPN.Caption = "Xóa CTPN";
-            this.btnXoaCTPN.Id = 9;
-            this.btnXoaCTPN.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnXoaCTPN.ImageOptions.Image")));
-            this.btnXoaCTPN.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnXoaCTPN.ImageOptions.LargeImage")));
-            this.btnXoaCTPN.Name = "btnXoaCTPN";
-            this.btnXoaCTPN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnXoaCTPN_ItemClick);
             // 
             // btnThoat
             // 
@@ -545,6 +514,7 @@
             // 
             // gridCTPN
             // 
+            this.gridCTPN.ContextMenuStrip = this.contextMenuStrip1;
             this.gridCTPN.DataSource = this.bdsCTPN;
             this.gridCTPN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gridCTPN.Location = new System.Drawing.Point(484, 28);
@@ -627,6 +597,37 @@
             // 
             this.cTDDHTableAdapter.ClearBeforeFill = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctmsThemCPN,
+            this.ctmsSuaCTPN,
+            this.ctmsXoaCTPN});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
+            // 
+            // ctmsThemCPN
+            // 
+            this.ctmsThemCPN.Name = "ctmsThemCPN";
+            this.ctmsThemCPN.Size = new System.Drawing.Size(210, 24);
+            this.ctmsThemCPN.Text = "Thêm CTPN";
+            this.ctmsThemCPN.Click += new System.EventHandler(this.ctmsThemCPN_Click);
+            // 
+            // ctmsSuaCTPN
+            // 
+            this.ctmsSuaCTPN.Name = "ctmsSuaCTPN";
+            this.ctmsSuaCTPN.Size = new System.Drawing.Size(210, 24);
+            this.ctmsSuaCTPN.Text = "Sửa CTPN";
+            this.ctmsSuaCTPN.Click += new System.EventHandler(this.ctmsSuaCTPN_Click);
+            // 
+            // ctmsXoaCTPN
+            // 
+            this.ctmsXoaCTPN.Name = "ctmsXoaCTPN";
+            this.ctmsXoaCTPN.Size = new System.Drawing.Size(210, 24);
+            this.ctmsXoaCTPN.Text = "Xóa CTPN";
+            this.ctmsXoaCTPN.Click += new System.EventHandler(this.ctmsXoaCTPN_Click);
+            // 
             // frmPhieuNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -662,6 +663,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.gridCTPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTPN)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -697,9 +699,6 @@
         private DevExpress.XtraGrid.Columns.GridColumn colMasoDDH;
         private DevExpress.XtraGrid.Columns.GridColumn colMAKHO;
         private DevExpress.XtraGrid.Columns.GridColumn colMANV;
-        private DevExpress.XtraBars.BarButtonItem btnThemCTPN;
-        private DevExpress.XtraBars.BarButtonItem btnSuaCTPN;
-        private DevExpress.XtraBars.BarButtonItem btnXoaCTPN;
         private DevExpress.XtraBars.BarButtonItem btnBreak;
         private DevExpress.XtraEditors.GroupControl gcInfoPN;
         private System.Windows.Forms.GroupBox gbInfoPN;
@@ -722,5 +721,9 @@
         public System.Windows.Forms.ComboBox cmbMaDDH;
         private DSTableAdapters.CTDDHTableAdapter cTDDHTableAdapter;
         private System.Windows.Forms.BindingSource bdsCTDDH;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem ctmsThemCPN;
+        private System.Windows.Forms.ToolStripMenuItem ctmsSuaCTPN;
+        private System.Windows.Forms.ToolStripMenuItem ctmsXoaCTPN;
     }
 }

@@ -44,7 +44,6 @@ namespace QLVT_DH.SimpleForm
             this.cTPXTableAdapter.Connection.ConnectionString = Program.connstr;
             this.cTPXTableAdapter.Fill(this.DS.CTPX);
 
-
             if (Program.bds_dspm.Count == 3) Program.bds_dspm.RemoveAt(2);
 
             cmbChiNhanh.DataSource = Program.bds_dspm;  // sao chép bds_dspm đã load ở form đăng nhập  qua
@@ -56,7 +55,8 @@ namespace QLVT_DH.SimpleForm
             if (Program.mGroup == "CONGTY")
             {
                 cmbChiNhanh.Enabled = true;  // bật tắt theo phân quyền
-                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = false;
+                btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = btnSua.Enabled = false;
+                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
                 gbInfoPX.Enabled = false;
             }
             else if (Program.mGroup == "CHINHANH" || Program.mGroup == "USER")
@@ -107,10 +107,10 @@ namespace QLVT_DH.SimpleForm
             }
         }
 
-
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnReload.Enabled = btnThemCTPX.Enabled = btnSuaCTPX.Enabled = btnXoaCTPX.Enabled = false;
+            btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnReload.Enabled = false;
+            btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
             txtMaPX.Enabled = btnBreak.Enabled = true;
 
             gbInfoPX.Enabled = btnGhi.Enabled = true;
@@ -132,7 +132,8 @@ namespace QLVT_DH.SimpleForm
                 this.phieuXuatTableAdapter.Update(this.DS.PHIEUXUAT);
                 bdsPX.Position = position;
 
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = btnThemCTPX.Enabled = btnSuaCTPX.Enabled = btnXoaCTPX.Enabled = true;
+                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
+                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
                 gbInfoPX.Enabled = btnGhi.Enabled = btnBreak.Enabled = false;
                 gridPX.Enabled = true;
                 return;
@@ -189,7 +190,8 @@ namespace QLVT_DH.SimpleForm
                         try
                         {
                             btnThem.Enabled = btnXoa.Enabled = gridPX.Enabled = gbInfoPX.Enabled = true;
-                            btnReload.Enabled = btnThoat.Enabled = btnThemCTPX.Enabled = btnSuaCTPX.Enabled = btnXoaCTPX.Enabled = true;
+                            btnReload.Enabled = btnThoat.Enabled  = true;
+                            btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
                             btnUndo.Enabled = true;
                             btnBreak.Enabled = false;
 
@@ -226,7 +228,7 @@ namespace QLVT_DH.SimpleForm
         {
             position = bdsPX.Position;
             txtMaPX.Enabled = false;
-            btnThemCTPX.Enabled = btnSuaCTPX.Enabled = btnXoaCTPX.Enabled = false;
+            btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
             gbInfoPX.Enabled = btnGhi.Enabled = btnBreak.Enabled = true;
             gridPX.Enabled = false;
@@ -406,7 +408,7 @@ namespace QLVT_DH.SimpleForm
 
             bdsPX.Position = position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
-            btnThemCTPX.Enabled = btnSuaCTPX.Enabled = btnXoaCTPX.Enabled = true;
+            ctmsThemCTPX.Enabled = ctmsSuaCTPX.Enabled = ctmsXoaCTPX.Enabled = true;
             gbInfoPX.Enabled = btnBreak.Enabled = false;
             gridPX.Enabled = true;
         }
@@ -444,6 +446,31 @@ namespace QLVT_DH.SimpleForm
             {
                 e.Cancel = false;
                 errorProvider1.SetError(txtKH, "");
+            }
+        }
+
+        private void ctmsThemCTPX_Click(object sender, EventArgs e)
+        {
+            Program.subFrmCTPX = new subFrmCTPX();
+            Program.subFrmCTPX.Show();
+            undolist.Push("THEMCTPX");
+        }
+
+        private void ctsmSuaCTPX_Click(object sender, EventArgs e)
+        {
+            Program.subFrmCTPX = new subFrmCTPX();
+            Program.subFrmCTPX.Show();
+            undolist.Push("SUACTPX");
+        }
+
+        private void ctsmXoaCTPX_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bạn có thực sự muốn xóa chi tiết phiếu xuất này không", "Xác nhận",
+                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (dr == DialogResult.OK)
+            {
+                bdsCTPX.RemoveCurrent();
+                this.cTPXTableAdapter.Update(this.DS.CTPX);
             }
         }
     }
