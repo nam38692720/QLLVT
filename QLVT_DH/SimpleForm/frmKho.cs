@@ -108,6 +108,39 @@ namespace QLVT_DH.SimpleForm
             if (statement == "EDIT")
             {
                 undolist.Push("EDIT");
+
+                String Tenkho = txtTenKho.Text.Trim();
+                if (Program.KetNoi() == 0) return;
+                // == Query tìm MaKho ==
+                String query_MaKho = "DECLARE	@return_value int " +
+                               "EXEC @return_value = [dbo].[SP_CHECKADDKHOTRUNG] " +
+                               "@p1, @p2 " +
+                               "SELECT 'Return Value' = @return_value";
+                SqlCommand sqlCommand = new SqlCommand(query_MaKho, Program.conn);
+                sqlCommand.Parameters.AddWithValue("@p1", Tenkho);
+                sqlCommand.Parameters.AddWithValue("@p2", "TENKHO");
+                SqlDataReader dataReader = null;
+
+                try
+                {
+                    dataReader = sqlCommand.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Thực thi database thất bại!\n" + ex.Message, "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                // Đọc và lấy result
+                dataReader.Read();
+                int result_value_MaKho = int.Parse(dataReader.GetValue(0).ToString());
+                dataReader.Close();
+                if (result_value_MaKho == 1)
+                {
+                    MessageBox.Show("Tên kho đã tồn tại!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 this.bdsKho.EndEdit();
                 this.khoTableAdapter.Update(this.DS.Kho);
                 bdsKho.Position = position;
@@ -124,18 +157,18 @@ namespace QLVT_DH.SimpleForm
 
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                txtMaKho.Text = txtMaKho.Text.Trim();
-                String MaKho = txtMaKho.Text;
+                String MaKho = txtMaKho.Text.Trim();
+                String Tenkho = txtTenKho.Text.Trim();
 
                 if (Program.KetNoi() == 0) return;
                 // == Query tìm MaKho ==
                 String query_MaKho = "DECLARE	@return_value int " +
-                               "EXEC @return_value = [dbo].[SP_CHECKTRUNG] " +
+                               "EXEC @return_value = [dbo].[SP_CHECKADDKHOTRUNG] " +
                                "@p1, @p2 " +
                                "SELECT 'Return Value' = @return_value";
                 SqlCommand sqlCommand = new SqlCommand(query_MaKho, Program.conn);
                 sqlCommand.Parameters.AddWithValue("@p1", MaKho);
-                sqlCommand.Parameters.AddWithValue("@p2", "MaKho");
+                sqlCommand.Parameters.AddWithValue("@p2", Tenkho);
                 SqlDataReader dataReader = null;
 
                 try
@@ -158,7 +191,7 @@ namespace QLVT_DH.SimpleForm
                 int indexCurrent = bdsKho.Position;
                 if (result_value_MaKho == 1 && (indexMaKho != indexCurrent))
                 {
-                    MessageBox.Show("Mã nhân viên đã tồn tại!", "Thông báo",
+                    MessageBox.Show("Mã kho hoặc tên kho đã tồn tại!", "Thông báo",
                         MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
 
@@ -309,19 +342,16 @@ namespace QLVT_DH.SimpleForm
         {
             string statement = undolist.Pop().ToString();
             if (statement == "EDIT")
-            {
                 undolist.Pop();
-                bdsKho.CancelEdit();
-            }
-            else
-            {
-                bdsKho.RemoveCurrent();
-            }
+
+            bdsKho.CancelEdit();//hủy cho cả thêm và sửa
 
             bdsKho.Position = position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled  = true;
             gcInfoKho.Enabled = btnBreak.Enabled = false;
             gridKho.Enabled = true;
+            //sau khi break ra thì phải trả validate về none để k hiển thi nữa
+            ValidateChildren(ValidationConstraints.None);
         }
 
         private void txtMaKho_Validating(object sender, CancelEventArgs e)

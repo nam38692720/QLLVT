@@ -66,6 +66,10 @@
             this.gridPX = new DevExpress.XtraGrid.GridControl();
             this.gcInfoPX = new DevExpress.XtraEditors.GroupControl();
             this.cTPXGridControl = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctmsThemCTPX = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmsSuaCTPX = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmsXoaCTPX = new System.Windows.Forms.ToolStripMenuItem();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAPX1 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colMAVT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -77,10 +81,6 @@
             this.txtKH = new DevExpress.XtraEditors.TextEdit();
             this.txtMaPX = new System.Windows.Forms.TextBox();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ctmsThemCTPX = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctmsSuaCTPX = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctmsXoaCTPX = new System.Windows.Forms.ToolStripMenuItem();
             mAPXLabel = new System.Windows.Forms.Label();
             hOTENKHLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
@@ -94,12 +94,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoPX)).BeginInit();
             this.gcInfoPX.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cTPXGridControl)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.gbInfoPX.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // mAPXLabel
@@ -447,6 +447,37 @@
             this.cTPXGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctmsThemCTPX,
+            this.ctmsSuaCTPX,
+            this.ctmsXoaCTPX});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 76);
+            // 
+            // ctmsThemCTPX
+            // 
+            this.ctmsThemCTPX.Name = "ctmsThemCTPX";
+            this.ctmsThemCTPX.Size = new System.Drawing.Size(153, 24);
+            this.ctmsThemCTPX.Text = "Thêm CTPX";
+            this.ctmsThemCTPX.Click += new System.EventHandler(this.ctmsThemCTPX_Click);
+            // 
+            // ctmsSuaCTPX
+            // 
+            this.ctmsSuaCTPX.Name = "ctmsSuaCTPX";
+            this.ctmsSuaCTPX.Size = new System.Drawing.Size(153, 24);
+            this.ctmsSuaCTPX.Text = "Sửa CTPX";
+            this.ctmsSuaCTPX.Click += new System.EventHandler(this.ctsmSuaCTPX_Click);
+            // 
+            // ctmsXoaCTPX
+            // 
+            this.ctmsXoaCTPX.Name = "ctmsXoaCTPX";
+            this.ctmsXoaCTPX.Size = new System.Drawing.Size(153, 24);
+            this.ctmsXoaCTPX.Text = "Xóa CTPX";
+            this.ctmsXoaCTPX.Click += new System.EventHandler(this.ctsmXoaCTPX_Click);
+            // 
             // gridView2
             // 
             this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
@@ -537,6 +568,7 @@
             this.txtMaKho.Properties.ReadOnly = true;
             this.txtMaKho.Size = new System.Drawing.Size(125, 22);
             this.txtMaKho.TabIndex = 5;
+            this.txtMaKho.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaKho_Validating);
             // 
             // txtKH
             // 
@@ -560,37 +592,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ctmsThemCTPX,
-            this.ctmsSuaCTPX,
-            this.ctmsXoaCTPX});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
-            // 
-            // ctmsThemCTPX
-            // 
-            this.ctmsThemCTPX.Name = "ctmsThemCTPX";
-            this.ctmsThemCTPX.Size = new System.Drawing.Size(210, 24);
-            this.ctmsThemCTPX.Text = "Thêm CTPX";
-            this.ctmsThemCTPX.Click += new System.EventHandler(this.ctmsThemCTPX_Click);
-            // 
-            // ctmsSuaCTPX
-            // 
-            this.ctmsSuaCTPX.Name = "ctmsSuaCTPX";
-            this.ctmsSuaCTPX.Size = new System.Drawing.Size(210, 24);
-            this.ctmsSuaCTPX.Text = "Sửa CTPX";
-            this.ctmsSuaCTPX.Click += new System.EventHandler(this.ctsmSuaCTPX_Click);
-            // 
-            // ctmsXoaCTPX
-            // 
-            this.ctmsXoaCTPX.Name = "ctmsXoaCTPX";
-            this.ctmsXoaCTPX.Size = new System.Drawing.Size(210, 24);
-            this.ctmsXoaCTPX.Text = "Xóa CTPX";
-            this.ctmsXoaCTPX.Click += new System.EventHandler(this.ctsmXoaCTPX_Click);
             // 
             // frmPhieuXuat
             // 
@@ -619,13 +620,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoPX)).EndInit();
             this.gcInfoPX.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.cTPXGridControl)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.gbInfoPX.ResumeLayout(false);
             this.gbInfoPX.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKho.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtKH.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

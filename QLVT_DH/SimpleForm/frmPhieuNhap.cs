@@ -457,20 +457,17 @@ namespace QLVT_DH.SimpleForm
         {
             string statement = undolist.Pop().ToString();
             if (statement == "EDIT")
-            {
                 undolist.Pop();
-                bdsPN.CancelEdit();
-            }
-            else
-            {
-                bdsPN.RemoveCurrent();
-            }
+
+            bdsPN.CancelEdit();//hủy cho cả thêm và sửa
 
             bdsPN.Position = position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
             ctmsThemCPN.Enabled = ctmsSuaCTPN.Enabled = ctmsXoaCTPN.Enabled = true;
             gbInfoPN.Enabled = btnBreak.Enabled = false;
             gridPN.Enabled = true;
+            //sau khi break ra thì phải trả validate về none để k hiển thi nữa
+            ValidateChildren(ValidationConstraints.None);
         }
 
         private void ctmsThemCPN_Click(object sender, EventArgs e)
@@ -509,6 +506,54 @@ namespace QLVT_DH.SimpleForm
             {
                 bdsCTPN.RemoveCurrent();
                 this.cTPNTableAdapter.Update(this.DS.CTPN);
+            }
+        }
+
+        private void txtMaPN_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaPN.Text))
+            {
+                e.Cancel = true;
+                txtMaPN.Focus();
+                errorProvider1.SetError(txtMaPN, "Mã PN không được để trống!");
+            }
+            else if (txtMaPN.Text.Trim().Contains(" "))
+            {
+                e.Cancel = true;
+                txtMaPN.Focus();
+                errorProvider1.SetError(txtMaPN, "Mã PN không được chứa khoảng trắng!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaPN, "");
+            }
+        }
+
+        private void txtMaKho_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaKho.Text))
+            {
+                e.Cancel = true;
+                txtMaKho.Focus();
+                errorProvider1.SetError(txtMaKho, "Mã kho không được để trống!");
+            }
+            else if (txtMaKho.Text.Trim().Contains("#"))
+            {
+                e.Cancel = true;
+                txtMaKho.Focus();
+                errorProvider1.SetError(txtMaKho, "Mã kho không được chứa ký tự đặc biệt!");
+            }
+            else if (txtMaKho.Text.Length > 4)
+            {
+                e.Cancel = true;
+                txtMaKho.Focus();
+                errorProvider1.SetError(txtMaKho, "Mã kho không được quá 4 kí tự");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaKho, "");
             }
         }
     }

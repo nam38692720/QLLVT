@@ -410,6 +410,7 @@
             this.numSL.Name = "numSL";
             this.numSL.Size = new System.Drawing.Size(286, 23);
             this.numSL.TabIndex = 7;
+            this.numSL.Validating += new System.ComponentModel.CancelEventHandler(this.numSL_Validating);
             // 
             // txtDVT
             // 
@@ -419,6 +420,7 @@
             this.txtDVT.Name = "txtDVT";
             this.txtDVT.Size = new System.Drawing.Size(125, 22);
             this.txtDVT.TabIndex = 5;
+            this.txtDVT.Validating += new System.ComponentModel.CancelEventHandler(this.txtDVT_Validating);
             // 
             // txtTenVT
             // 
@@ -428,6 +430,7 @@
             this.txtTenVT.Name = "txtTenVT";
             this.txtTenVT.Size = new System.Drawing.Size(286, 22);
             this.txtTenVT.TabIndex = 3;
+            this.txtTenVT.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenVT_Validating);
             // 
             // txtMaVT
             // 
@@ -437,6 +440,7 @@
             this.txtMaVT.Name = "txtMaVT";
             this.txtMaVT.Size = new System.Drawing.Size(125, 22);
             this.txtMaVT.TabIndex = 1;
+            this.txtMaVT.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaVT_Validating);
             // 
             // bdsCTPX
             // 

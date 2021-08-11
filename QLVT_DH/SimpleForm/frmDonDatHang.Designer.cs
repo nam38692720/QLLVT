@@ -449,26 +449,26 @@
             this.ctmsGhiCTDDH,
             this.ctmsXoaCTDDH});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(170, 76);
             // 
             // ctmsThemCTDDH
             // 
             this.ctmsThemCTDDH.Name = "ctmsThemCTDDH";
-            this.ctmsThemCTDDH.Size = new System.Drawing.Size(210, 24);
+            this.ctmsThemCTDDH.Size = new System.Drawing.Size(169, 24);
             this.ctmsThemCTDDH.Text = "Thêm CTDĐH";
             this.ctmsThemCTDDH.Click += new System.EventHandler(this.ctmsThemCTDDH_Click);
             // 
             // ctmsGhiCTDDH
             // 
             this.ctmsGhiCTDDH.Name = "ctmsGhiCTDDH";
-            this.ctmsGhiCTDDH.Size = new System.Drawing.Size(210, 24);
+            this.ctmsGhiCTDDH.Size = new System.Drawing.Size(169, 24);
             this.ctmsGhiCTDDH.Text = "Ghi CTĐH";
             this.ctmsGhiCTDDH.Click += new System.EventHandler(this.ctsmGhiCTDDH_Click);
             // 
             // ctmsXoaCTDDH
             // 
             this.ctmsXoaCTDDH.Name = "ctmsXoaCTDDH";
-            this.ctmsXoaCTDDH.Size = new System.Drawing.Size(210, 24);
+            this.ctmsXoaCTDDH.Size = new System.Drawing.Size(169, 24);
             this.ctmsXoaCTDDH.Text = "Xóa CTĐH";
             this.ctmsXoaCTDDH.Click += new System.EventHandler(this.ctsmXoaCTDDH_Click);
             // 
@@ -565,6 +565,7 @@
             this.txtMaKho.TabIndex = 5;
             this.txtMaKho.UseWaitCursor = true;
             this.txtMaKho.EditValueChanged += new System.EventHandler(this.txtMaKho_EditValueChanged);
+            this.txtMaKho.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaKho_Validating);
             // 
             // txtMaNCC
             // 

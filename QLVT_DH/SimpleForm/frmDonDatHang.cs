@@ -415,20 +415,17 @@ namespace QLVT_DH.SimpleForm
         {
             string statement = undolist.Pop().ToString();
             if (statement == "EDIT")
-            {
                 undolist.Pop();
-                bdsDH.CancelEdit();
-            }
-            else
-            {
-                bdsDH.RemoveCurrent();
-            }
+
+            bdsDH.CancelEdit();//hủy cho cả thêm và sửa
 
             bdsDH.Position = position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
             ctmsThemCTDDH.Enabled = ctmsGhiCTDDH.Enabled = ctmsXoaCTDDH.Enabled = true;
             gbInfoDDH.Enabled = btnBreak.Enabled = false;
             gridDDH.Enabled = true;
+            //sau khi break ra thì phải trả validate về none để k hiển thi nữa
+            ValidateChildren(ValidationConstraints.None);
         }
 
         private void txtMaDDH_Validating(object sender, CancelEventArgs e)
@@ -498,6 +495,33 @@ namespace QLVT_DH.SimpleForm
             {
                 bdsCTDDH.RemoveCurrent();
                 this.cTDDHTableAdapter.Update(this.DS.CTDDH);
+            }
+        }
+
+        private void txtMaKho_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaKho.Text))
+            {
+                e.Cancel = true;
+                txtMaKho.Focus();
+                errorProvider1.SetError(txtMaKho, "Mã kho không được để trống!");
+            }
+            else if (txtMaKho.Text.Trim().Contains("#"))
+            {
+                e.Cancel = true;
+                txtMaKho.Focus();
+                errorProvider1.SetError(txtMaKho, "Mã kho không được chứa ký tự đặc biệt!");
+            }
+            else if (txtMaKho.Text.Length > 4)
+            {
+                e.Cancel = true;
+                txtMaKho.Focus();
+                errorProvider1.SetError(txtMaKho, "Mã kho không được quá 4 kí tự");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaKho, "");
             }
         }
     }

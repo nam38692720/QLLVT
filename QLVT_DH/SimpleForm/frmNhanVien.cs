@@ -146,8 +146,8 @@ namespace QLVT_DH.SimpleForm
                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
-                }
             }
+        }
         }
 
         private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -472,20 +472,18 @@ namespace QLVT_DH.SimpleForm
         {
             string statement = undolist.Pop().ToString();
             if (statement == "EDIT")
-            {
                 undolist.Pop();
-                bdsNV.CancelEdit();
-            }
-            else
-            {
-               bdsNV.RemoveCurrent();
-            }
-            
+
+            bdsNV.CancelEdit();//hủy cho cả thêm và sửa
+
 
             bdsNV.Position = position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
             gcInfoNhanVien.Enabled = btnBreak.Enabled = false;
             gridNhanVien.Enabled = true;
+            //sau khi break ra thì phải trả validate về none để k hiển thi nữa
+            ValidateChildren(ValidationConstraints.None);
+                
         }
         private bool Validate(DateEdit date, string str)
         {

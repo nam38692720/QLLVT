@@ -237,19 +237,16 @@ namespace QLVT_DH.SimpleForm
         {
             string statement = undolist.Pop().ToString();
             if (statement == "EDIT")
-            {
                 undolist.Pop();
-                bdsVT.CancelEdit();
-            }
-            else
-            {
-                bdsVT.RemoveCurrent();
-            }
+
+            bdsVT.CancelEdit();//hủy cho cả thêm và sửa
 
             bdsVT.Position = position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
             gcInfoVT.Enabled = btnBreak.Enabled = false;
             gridVT.Enabled = true;
+            //sau khi break ra thì phải trả validate về none để k hiển thi nữa
+            ValidateChildren(ValidationConstraints.None);
         }
 
         private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -299,6 +296,72 @@ namespace QLVT_DH.SimpleForm
                 }
             }
             if (undolist.Count == 0) btnUndo.Enabled = false;
+        }
+
+        private void txtMaVT_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtMaVT.Text))
+            {
+                e.Cancel = true;
+                txtMaVT.Focus();
+                errorProvider1.SetError(txtMaVT, "Mã VT không được để trống!");
+            }
+            else if (txtMaVT.Text.Trim().Contains(" "))
+            {
+                e.Cancel = true;
+                txtMaVT.Focus();
+                errorProvider1.SetError(txtMaVT, "Mã VT không được chứa khoảng trắng!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtMaVT, "");
+            }
+        }
+
+        private void txtTenVT_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtTenVT.Text))
+            {
+                e.Cancel = true;
+                txtTenVT.Focus();
+                errorProvider1.SetError(txtTenVT, "Tên VT không được để trống!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtTenVT, "");
+            }
+        }
+
+        private void txtDVT_Validating(object sender, CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtDVT.Text))
+            {
+                e.Cancel = true;
+                txtDVT.Focus();
+                errorProvider1.SetError(txtDVT, "Đơn vị tính không được để trống!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtDVT, "");
+            }
+        }
+
+        private void numSL_Validating(object sender, CancelEventArgs e)
+        {
+            if (numSL.Value < 0)
+            {
+                e.Cancel = true;
+                numSL.Focus();
+                errorProvider1.SetError(numSL, "Số lượng phải lớn hơn 0!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(numSL, "");
+            }
         }
     }
 }

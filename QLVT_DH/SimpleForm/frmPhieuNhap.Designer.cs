@@ -73,6 +73,10 @@
             this.txtMaPN = new DevExpress.XtraEditors.TextEdit();
             this.gcInfoPN = new DevExpress.XtraEditors.GroupControl();
             this.gridCTPN = new DevExpress.XtraGrid.GridControl();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.ctmsThemCPN = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmsSuaCTPN = new System.Windows.Forms.ToolStripMenuItem();
+            this.ctmsXoaCTPN = new System.Windows.Forms.ToolStripMenuItem();
             this.bdsCTPN = new System.Windows.Forms.BindingSource(this.components);
             this.gvCTPN = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMAPN1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -82,10 +86,7 @@
             this.cTPNTableAdapter = new QLVT_DH.DSTableAdapters.CTPNTableAdapter();
             this.dATHANGTableAdapter = new QLVT_DH.DSTableAdapters.DATHANGTableAdapter();
             this.cTDDHTableAdapter = new QLVT_DH.DSTableAdapters.CTDDHTableAdapter();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ctmsThemCPN = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctmsSuaCTPN = new System.Windows.Forms.ToolStripMenuItem();
-            this.ctmsXoaCTPN = new System.Windows.Forms.ToolStripMenuItem();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             mAPNLabel = new System.Windows.Forms.Label();
             mAKHOLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -103,9 +104,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoPN)).BeginInit();
             this.gcInfoPN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridCTPN)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTPN)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // mAPNLabel
@@ -490,6 +492,7 @@
             this.txtMaKho.Properties.ReadOnly = true;
             this.txtMaKho.Size = new System.Drawing.Size(141, 22);
             this.txtMaKho.TabIndex = 3;
+            this.txtMaKho.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaKho_Validating);
             // 
             // txtMaPN
             // 
@@ -500,6 +503,7 @@
             this.txtMaPN.Size = new System.Drawing.Size(141, 22);
             this.txtMaPN.TabIndex = 1;
             this.txtMaPN.TabStop = false;
+            this.txtMaPN.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaPN_Validating);
             // 
             // gcInfoPN
             // 
@@ -525,6 +529,37 @@
             this.gridCTPN.TabIndex = 1;
             this.gridCTPN.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gvCTPN});
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ctmsThemCPN,
+            this.ctmsSuaCTPN,
+            this.ctmsXoaCTPN});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(156, 76);
+            // 
+            // ctmsThemCPN
+            // 
+            this.ctmsThemCPN.Name = "ctmsThemCPN";
+            this.ctmsThemCPN.Size = new System.Drawing.Size(155, 24);
+            this.ctmsThemCPN.Text = "Thêm CTPN";
+            this.ctmsThemCPN.Click += new System.EventHandler(this.ctmsThemCPN_Click);
+            // 
+            // ctmsSuaCTPN
+            // 
+            this.ctmsSuaCTPN.Name = "ctmsSuaCTPN";
+            this.ctmsSuaCTPN.Size = new System.Drawing.Size(155, 24);
+            this.ctmsSuaCTPN.Text = "Sửa CTPN";
+            this.ctmsSuaCTPN.Click += new System.EventHandler(this.ctmsSuaCTPN_Click);
+            // 
+            // ctmsXoaCTPN
+            // 
+            this.ctmsXoaCTPN.Name = "ctmsXoaCTPN";
+            this.ctmsXoaCTPN.Size = new System.Drawing.Size(155, 24);
+            this.ctmsXoaCTPN.Text = "Xóa CTPN";
+            this.ctmsXoaCTPN.Click += new System.EventHandler(this.ctmsXoaCTPN_Click);
             // 
             // bdsCTPN
             // 
@@ -597,36 +632,9 @@
             // 
             this.cTDDHTableAdapter.ClearBeforeFill = true;
             // 
-            // contextMenuStrip1
+            // errorProvider1
             // 
-            this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ctmsThemCPN,
-            this.ctmsSuaCTPN,
-            this.ctmsXoaCTPN});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 104);
-            // 
-            // ctmsThemCPN
-            // 
-            this.ctmsThemCPN.Name = "ctmsThemCPN";
-            this.ctmsThemCPN.Size = new System.Drawing.Size(210, 24);
-            this.ctmsThemCPN.Text = "Thêm CTPN";
-            this.ctmsThemCPN.Click += new System.EventHandler(this.ctmsThemCPN_Click);
-            // 
-            // ctmsSuaCTPN
-            // 
-            this.ctmsSuaCTPN.Name = "ctmsSuaCTPN";
-            this.ctmsSuaCTPN.Size = new System.Drawing.Size(210, 24);
-            this.ctmsSuaCTPN.Text = "Sửa CTPN";
-            this.ctmsSuaCTPN.Click += new System.EventHandler(this.ctmsSuaCTPN_Click);
-            // 
-            // ctmsXoaCTPN
-            // 
-            this.ctmsXoaCTPN.Name = "ctmsXoaCTPN";
-            this.ctmsXoaCTPN.Size = new System.Drawing.Size(210, 24);
-            this.ctmsXoaCTPN.Text = "Xóa CTPN";
-            this.ctmsXoaCTPN.Click += new System.EventHandler(this.ctmsXoaCTPN_Click);
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmPhieuNhap
             // 
@@ -661,9 +669,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.gcInfoPN)).EndInit();
             this.gcInfoPN.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridCTPN)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gvCTPN)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -725,5 +734,6 @@
         private System.Windows.Forms.ToolStripMenuItem ctmsThemCPN;
         private System.Windows.Forms.ToolStripMenuItem ctmsSuaCTPN;
         private System.Windows.Forms.ToolStripMenuItem ctmsXoaCTPN;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

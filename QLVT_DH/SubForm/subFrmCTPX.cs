@@ -163,6 +163,11 @@ namespace QLVT_DH.SimpleForm
                 numSL.Focus();
                 errorProvider1.SetError(numSL, "Số lượng phải lớn hơn 0!");
             }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(numSL, "");
+            }
         }
 
         private void numDG_Validating(object sender, CancelEventArgs e)
@@ -172,6 +177,11 @@ namespace QLVT_DH.SimpleForm
                 e.Cancel = true;
                 numDG.Focus();
                 errorProvider1.SetError(numDG, "Đơn giá phải lớn hơn 0!");
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(numDG, "");
             }
         }
     }
