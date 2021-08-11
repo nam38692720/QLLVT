@@ -66,54 +66,57 @@ namespace QLVT_DH.SimpleForm
 
         private void btnCreateAcc_Click(object sender, EventArgs e)
         {
-            if (txtPassword.Text.Equals(txtRetype.Text))
+            if (ValidateChildren(ValidationConstraints.Enabled))
             {
-                String login = txtUsername.Text.Trim();
-                String password = txtPassword.Text.Trim();
-                //int username = (int)comboBox_NV.SelectedValue;
-                int username = int.Parse(txtMaNV.Text.Trim());
-                String role = "";
-                //if (comboBox_Role.SelectedIndex == 0) role = "CONGTY";
-                //else if (comboBox_Role.SelectedIndex == 1) role = "CHINHANH";
-                //else if (comboBox_Role.SelectedIndex == 2) role = "USER";
-                if (Program.mGroup == "CONGTY") role = "CONGTY";
+                if (txtPassword.Text.Equals(txtRetype.Text))
+                {
+                    String login = txtUsername.Text.Trim();
+                    String password = txtPassword.Text.Trim();
+                    //int username = (int)comboBox_NV.SelectedValue;
+                    int username = int.Parse(txtMaNV.Text.Trim());
+                    String role = "";
+                    //if (comboBox_Role.SelectedIndex == 0) role = "CONGTY";
+                    //else if (comboBox_Role.SelectedIndex == 1) role = "CHINHANH";
+                    //else if (comboBox_Role.SelectedIndex == 2) role = "USER";
+                    if (Program.mGroup == "CONGTY") role = "CONGTY";
+                    else
+                    {
+                        if (rbCN.Checked == true) role = "CHINHANH";
+                        else if (rbUser.Checked == true) role = "USER";
+                    }
+                    Console.WriteLine(login + "  " + password + "   " + username + "    " + role);
+
+                    if (Program.KetNoi() == 0) return;
+                    // == Query tìm MaKho ==
+                    String query_Create_Acc = "DECLARE	@return_value int " +
+                                   "EXEC	@return_value = [dbo].[SP_TAOACCOUNT] " +
+                                   "@LGNAME, @PASS, @USERNAME, @ROLE " +
+                                   "SELECT 'Return Value' = @return_value";
+                    SqlCommand sqlCommand = new SqlCommand(query_Create_Acc, Program.conn);
+                    sqlCommand.Parameters.AddWithValue("@LGNAME", login);
+                    sqlCommand.Parameters.AddWithValue("@PASS", password);
+                    sqlCommand.Parameters.AddWithValue("@USERNAME", username);
+                    sqlCommand.Parameters.AddWithValue("@ROLE", role);
+                    SqlDataReader dataReader = null;
+
+                    try
+                    {
+                        dataReader = sqlCommand.ExecuteReader();
+                        MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thực thi database thất bại!\n" + ex.Message, "Thông báo",
+                             MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
                 else
                 {
-                    if (rbCN.Checked == true) role = "CHINHANH";
-                    else if (rbUser.Checked == true) role = "USER";
+                    MessageBox.Show("Mật khẩu nhập lại không trùng!\nVui lòng nhập lại!\n", "Lỗi",
+                                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                Console.WriteLine(login + "  " + password + "   " + username + "    " + role);
-
-                if (Program.KetNoi() == 0) return;
-                // == Query tìm MaKho ==
-                String query_Create_Acc = "DECLARE	@return_value int " +
-                               "EXEC	@return_value = [dbo].[SP_TAOACCOUNT] " +
-                               "@LGNAME, @PASS, @USERNAME, @ROLE " +
-                               "SELECT 'Return Value' = @return_value";
-                SqlCommand sqlCommand = new SqlCommand(query_Create_Acc, Program.conn);
-                sqlCommand.Parameters.AddWithValue("@LGNAME", login);
-                sqlCommand.Parameters.AddWithValue("@PASS", password);
-                sqlCommand.Parameters.AddWithValue("@USERNAME", username);
-                sqlCommand.Parameters.AddWithValue("@ROLE", role);
-                SqlDataReader dataReader = null;
-
-                try
-                {
-                    dataReader = sqlCommand.ExecuteReader();
-                    MessageBox.Show("Tạo tài khoản thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Thực thi database thất bại!\n" + ex.Message, "Thông báo",
-                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-            else
-            {
-                MessageBox.Show("Mật khẩu nhập lại không trùng!\nVui lòng nhập lại!\n", "Lỗi",
-                                MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

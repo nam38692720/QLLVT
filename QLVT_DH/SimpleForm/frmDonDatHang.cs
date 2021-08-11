@@ -88,31 +88,32 @@ namespace QLVT_DH.SimpleForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string statement = null;
-            if (undolist.Count != 0) statement = undolist.Pop().ToString();
-
-            if (statement == "EDIT")
-            {
-                undolist.Push("EDIT");
-                this.bdsDH.EndEdit();
-                this.datHangTableAdapter.Update(this.DS.DATHANG);
-                bdsDH.Position = position;
-
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
-                ctmsThemCTDDH.Enabled = ctmsGhiCTDDH.Enabled = ctmsXoaCTDDH.Enabled = true;
-                gbInfoDDH.Enabled = btnGhi.Enabled = false;
-                gridDDH.Enabled = true;
-                return;
-            }
-            else
-            {
-                undolist.Push("INSERT");
-            }
-
-
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
 
+                //truong hop ghi cua cua sua
+                string statement = null;
+                if (undolist.Count != 0) statement = undolist.Pop().ToString();
+
+                if (statement == "EDIT")
+                {
+                    undolist.Push("EDIT");
+                    this.bdsDH.EndEdit();
+                    this.datHangTableAdapter.Update(this.DS.DATHANG);
+                    bdsDH.Position = position;
+
+                    btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
+                    ctmsThemCTDDH.Enabled = ctmsGhiCTDDH.Enabled = ctmsXoaCTDDH.Enabled = true;
+                    gbInfoDDH.Enabled = btnGhi.Enabled = false;
+                    gridDDH.Enabled = true;
+                    return;
+                }
+                else
+                {
+                    undolist.Push("INSERT");
+                }
+
+                // ghi cua them
                 if (Program.KetNoi() == 0) return;
                 String query = "DECLARE	@return_value int " +
                                "EXEC @return_value = [dbo].[SP_CHECKTRUNG] " +

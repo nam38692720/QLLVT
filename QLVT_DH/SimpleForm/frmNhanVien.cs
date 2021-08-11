@@ -55,28 +55,32 @@ namespace QLVT_DH.SimpleForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string statement = null;
-            if (undolist.Count != 0) statement = undolist.Pop().ToString();
-
-            if(statement == "EDIT")
-            {
-                undolist.Push("EDIT");
-                this.bdsNV.EndEdit();
-                this.nhanvienTableAdapter.Update(this.DS.NHANVIEN);
-                bdsNV.Position = position;
-
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnChuyenChiNhanh.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
-                gcInfoNhanVien.Enabled = btnGhi.Enabled = false;
-                gridNhanVien.Enabled = true;
-                return;
-            }
-            else
-            {
-                undolist.Push("INSERT");
-            }
+            
 
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
+                string statement = null;
+                if (undolist.Count != 0) statement = undolist.Pop().ToString();
+
+                if (statement == "EDIT")
+                {
+                    undolist.Push("EDIT");
+                    this.bdsNV.EndEdit();
+                    this.nhanvienTableAdapter.Update(this.DS.NHANVIEN);
+                    bdsNV.Position = position;
+
+                    btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnChuyenChiNhanh.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
+                    gcInfoNhanVien.Enabled = btnGhi.Enabled = false;
+                    gridNhanVien.Enabled = true;
+                    return;
+                }
+                else
+                {
+                    undolist.Push("INSERT");
+                }
+
+
+
                 txtMaNV.Text = txtMaNV.Text.Trim();
                 int maNV = int.Parse(txtMaNV.Text);
 

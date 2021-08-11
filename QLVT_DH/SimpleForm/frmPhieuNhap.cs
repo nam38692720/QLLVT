@@ -139,30 +139,31 @@ namespace QLVT_DH.SimpleForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string statement = null;
-            if (undolist.Count != 0) statement = undolist.Pop().ToString();
-
-            if (statement == "EDIT")
-            {
-                undolist.Push("EDIT");
-                this.bdsPN.EndEdit();
-                this.phieuNhapableAdapter.Update(this.DS.PHIEUNHAP);
-                bdsPN.Position = position;
-
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
-                    ctmsThemCPN.Enabled = ctmsSuaCTPN.Enabled = ctmsXoaCTPN.Enabled = true;
-                gbInfoPN.Enabled = btnGhi.Enabled = btnBreak.Enabled = false;
-                gridPN.Enabled = true;
-                return;
-            }
-            else
-            {
-                undolist.Push("INSERT");
-            }
-
 
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
+                string statement = null;
+                if (undolist.Count != 0) statement = undolist.Pop().ToString();
+
+                if (statement == "EDIT")
+                {
+                    undolist.Push("EDIT");
+                    this.bdsPN.EndEdit();
+                    this.phieuNhapableAdapter.Update(this.DS.PHIEUNHAP);
+                    bdsPN.Position = position;
+
+                    btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
+                    ctmsThemCPN.Enabled = ctmsSuaCTPN.Enabled = ctmsXoaCTPN.Enabled = true;
+                    gbInfoPN.Enabled = btnGhi.Enabled = btnBreak.Enabled = false;
+                    gridPN.Enabled = true;
+                    return;
+                }
+                else
+                {
+                    undolist.Push("INSERT");
+                }
+
+
                 int checkexits = bdsPN.Find("MasoDDH", cmbMaDDH.Text);
                 //vì trong 1 phiếu nhập chỉ dùng 1 đơn đặt hàng : đề bài MasoDDH unique
                 // check bằng với bdsPN.Count vì khi thêm 1 row mới thì trong row đó sẽ có mã ddh này 

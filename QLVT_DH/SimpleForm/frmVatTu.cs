@@ -79,28 +79,29 @@ namespace QLVT_DH.SimpleForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string statement = null;
-            if (undolist.Count != 0) statement = undolist.Pop().ToString();
-
-            if (statement == "EDIT")
-            {
-                undolist.Push("EDIT");
-                this.bdsVT.EndEdit();
-                this.vattuTableAdapter.Update(this.DS.Vattu);
-                bdsVT.Position = position;
-
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
-                gcInfoVT.Enabled = btnGhi.Enabled = false;
-                gridVT.Enabled = true;
-                return;
-            }
-            else
-            {
-                undolist.Push("INSERT");
-            }
-
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
+                string statement = null;
+                if (undolist.Count != 0) statement = undolist.Pop().ToString();
+
+                if (statement == "EDIT")
+                {
+                    undolist.Push("EDIT");
+                    this.bdsVT.EndEdit();
+                    this.vattuTableAdapter.Update(this.DS.Vattu);
+                    bdsVT.Position = position;
+
+                    btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
+                    gcInfoVT.Enabled = btnGhi.Enabled = false;
+                    gridVT.Enabled = true;
+                    return;
+                }
+                else
+                {
+                    undolist.Push("INSERT");
+                }
+
+
                 txtMaVT.Text = txtMaVT.Text.Trim();
                 String MaVT = txtMaVT.Text;
                 if (Program.KetNoi() == 0) return;

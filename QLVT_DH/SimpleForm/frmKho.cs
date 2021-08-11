@@ -102,61 +102,65 @@ namespace QLVT_DH.SimpleForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string statement = null;
-            if (undolist.Count != 0) statement = undolist.Pop().ToString();
-
-            if (statement == "EDIT")
-            {
-                undolist.Push("EDIT");
-
-                String Tenkho = txtTenKho.Text.Trim();
-                if (Program.KetNoi() == 0) return;
-                // == Query tìm MaKho ==
-                String query_MaKho = "DECLARE	@return_value int " +
-                               "EXEC @return_value = [dbo].[SP_CHECKADDKHOTRUNG] " +
-                               "@p1, @p2 " +
-                               "SELECT 'Return Value' = @return_value";
-                SqlCommand sqlCommand = new SqlCommand(query_MaKho, Program.conn);
-                sqlCommand.Parameters.AddWithValue("@p1", Tenkho);
-                sqlCommand.Parameters.AddWithValue("@p2", "TENKHO");
-                SqlDataReader dataReader = null;
-
-                try
-                {
-                    dataReader = sqlCommand.ExecuteReader();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Thực thi database thất bại!\n" + ex.Message, "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                // Đọc và lấy result
-                dataReader.Read();
-                int result_value_MaKho = int.Parse(dataReader.GetValue(0).ToString());
-                dataReader.Close();
-                if (result_value_MaKho == 1)
-                {
-                    MessageBox.Show("Tên kho đã tồn tại!", "Thông báo",
-                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-
-                this.bdsKho.EndEdit();
-                this.khoTableAdapter.Update(this.DS.Kho);
-                bdsKho.Position = position;
-
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled  = btnReload.Enabled = btnUndo.Enabled = true;
-                gcInfoKho.Enabled = btnGhi.Enabled = false;
-                gridKho.Enabled = true;
-                return;
-            }
-            else
-            {
-                undolist.Push("INSERT");
-            }
-
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
+
+                string statement = null;
+                if (undolist.Count != 0) statement = undolist.Pop().ToString();
+
+                if (statement == "EDIT")
+                {
+                    undolist.Push("EDIT");
+
+                    String TenkhoSua = txtTenKho.Text.Trim();
+                    if (Program.KetNoi() == 0) return;
+                    // == Query tìm MaKho ==
+                    String query_MaKhoSua = "DECLARE	@return_value int " +
+                                   "EXEC @return_value = [dbo].[SP_CHECKADDKHOTRUNG] " +
+                                   "@p1, @p2 " +
+                                   "SELECT 'Return Value' = @return_value";
+                    SqlCommand sqlCommandSua = new SqlCommand(query_MaKhoSua, Program.conn);
+                    sqlCommandSua.Parameters.AddWithValue("@p1", TenkhoSua);
+                    sqlCommandSua.Parameters.AddWithValue("@p2", "TENKHO");
+                    SqlDataReader dataReaderSua = null;
+
+                    try
+                    {
+                        dataReaderSua = sqlCommandSua.ExecuteReader();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Thực thi database thất bại!\n" + ex.Message, "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    // Đọc và lấy result
+                    dataReaderSua.Read();
+                    int result_value_MaKhoSua = int.Parse(dataReaderSua.GetValue(0).ToString());
+                    dataReaderSua.Close();
+                    if (result_value_MaKhoSua == 1)
+                    {
+                        MessageBox.Show("Tên kho đã tồn tại!", "Thông báo",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+
+                    this.bdsKho.EndEdit();
+                    this.khoTableAdapter.Update(this.DS.Kho);
+                    bdsKho.Position = position;
+
+                    btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
+                    gcInfoKho.Enabled = btnGhi.Enabled = false;
+                    gridKho.Enabled = true;
+                    return;
+                }
+                else
+                {
+                    undolist.Push("INSERT");
+                }
+
+
+
+
                 String MaKho = txtMaKho.Text.Trim();
                 String Tenkho = txtTenKho.Text.Trim();
 

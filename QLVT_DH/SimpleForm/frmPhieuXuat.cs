@@ -122,30 +122,30 @@ namespace QLVT_DH.SimpleForm
 
         private void btnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string statement = null;
-            if (undolist.Count != 0) statement = undolist.Pop().ToString();
-
-            if (statement == "EDIT")
-            {
-                undolist.Push("EDIT");
-                this.bdsPX.EndEdit();
-                this.phieuXuatTableAdapter.Update(this.DS.PHIEUXUAT);
-                bdsPX.Position = position;
-
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
-                gbInfoPX.Enabled = btnGhi.Enabled = btnBreak.Enabled = false;
-                gridPX.Enabled = true;
-                return;
-            }
-            else
-            {
-                undolist.Push("INSERT");
-            }
-
-
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
+
+                string statement = null;
+                if (undolist.Count != 0) statement = undolist.Pop().ToString();
+
+                if (statement == "EDIT")
+                {
+                    undolist.Push("EDIT");
+                    this.bdsPX.EndEdit();
+                    this.phieuXuatTableAdapter.Update(this.DS.PHIEUXUAT);
+                    bdsPX.Position = position;
+
+                    btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
+                    btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
+                    gbInfoPX.Enabled = btnGhi.Enabled = btnBreak.Enabled = false;
+                    gridPX.Enabled = true;
+                    return;
+                }
+                else
+                {
+                    undolist.Push("INSERT");
+                }
+
 
                 if (Program.KetNoi() == 0) return;
                 String query = "DECLARE	@return_value int " +

@@ -81,13 +81,13 @@
             // cmbChiNhanh
             // 
             this.cmbChiNhanh.DataSource = this.v_DS_PHANMANHBindingSource;
-            this.cmbChiNhanh.DisplayMember = "TENSERVER";
+            this.cmbChiNhanh.DisplayMember = "TENCN";
             this.cmbChiNhanh.FormattingEnabled = true;
             this.cmbChiNhanh.Location = new System.Drawing.Point(222, 72);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(147, 24);
             this.cmbChiNhanh.TabIndex = 23;
-            this.cmbChiNhanh.ValueMember = "TENCN";
+            this.cmbChiNhanh.ValueMember = "TENSERVER";
             // 
             // v_DS_PHANMANHBindingSource
             // 
@@ -206,7 +206,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(121, 10);
+            this.label1.Location = new System.Drawing.Point(164, 11);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(201, 32);
             this.label1.TabIndex = 2;

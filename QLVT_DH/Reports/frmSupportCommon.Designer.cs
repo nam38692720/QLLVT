@@ -65,13 +65,13 @@
             // cmbChiNhanh
             // 
             this.cmbChiNhanh.DataSource = this.v_DS_PHANMANHBindingSource;
-            this.cmbChiNhanh.DisplayMember = "TENSERVER";
+            this.cmbChiNhanh.DisplayMember = "TENCN";
             this.cmbChiNhanh.FormattingEnabled = true;
             this.cmbChiNhanh.Location = new System.Drawing.Point(144, 105);
             this.cmbChiNhanh.Name = "cmbChiNhanh";
             this.cmbChiNhanh.Size = new System.Drawing.Size(300, 24);
             this.cmbChiNhanh.TabIndex = 1;
-            this.cmbChiNhanh.ValueMember = "TENCN";
+            this.cmbChiNhanh.ValueMember = "TENSERVER";
             this.cmbChiNhanh.SelectedIndexChanged += new System.EventHandler(this.v_DS_PHANMANHComboBox_SelectedIndexChanged);
             // 
             // lbChiNhanh
