@@ -83,7 +83,7 @@ namespace QLVT_DH.SimpleForm
                 if (Program.KetNoi() == 0) return;
                 // == Query tìm MANV ==
                 String query_MANV = "DECLARE	@return_value int " +
-                               "EXEC @return_value = [dbo].[SP_CHECKID_TRACUU] " +
+                               "EXEC @return_value = [dbo].[SP_CHECKTRUNG] " +
                                "@p1, @p2 " +
                                "SELECT 'Return Value' = @return_value";
                 SqlCommand sqlCommand = new SqlCommand(query_MANV, Program.conn);

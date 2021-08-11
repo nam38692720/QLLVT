@@ -149,7 +149,7 @@ namespace QLVT_DH.SimpleForm
 
                 if (Program.KetNoi() == 0) return;
                 String query = "DECLARE	@return_value int " +
-                               "EXEC @return_value = [dbo].[SP_CHECKID] " +
+                               "EXEC @return_value = [dbo].[SP_CHECKTRUNG] " +
                                "@p1, @p2 " +
                                "SELECT 'Return Value' = @return_value";
                 SqlCommand sqlCommand = new SqlCommand(query, Program.conn);

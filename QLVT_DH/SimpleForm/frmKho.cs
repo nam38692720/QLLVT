@@ -130,7 +130,7 @@ namespace QLVT_DH.SimpleForm
                 if (Program.KetNoi() == 0) return;
                 // == Query tìm MaKho ==
                 String query_MaKho = "DECLARE	@return_value int " +
-                               "EXEC @return_value = [dbo].[SP_CHECKID_TRACUU] " +
+                               "EXEC @return_value = [dbo].[SP_CHECKTRUNG] " +
                                "@p1, @p2 " +
                                "SELECT 'Return Value' = @return_value";
                 SqlCommand sqlCommand = new SqlCommand(query_MaKho, Program.conn);
@@ -277,6 +277,7 @@ namespace QLVT_DH.SimpleForm
                     txtMaCN.Text = maCN;
                     this.bdsKho.EndEdit();
                     this.khoTableAdapter.Update(this.DS.Kho);
+                    
                 }
                 else if (statement.Equals("INSERT"))
                 {
@@ -288,8 +289,6 @@ namespace QLVT_DH.SimpleForm
                 }
                 else if (statement.Equals("EDIT"))
                 {
-
-
                     String TT = undolist.Pop().ToString();
                     String[] TT_Kho = TT.Split('#');
                     bdsKho.Position = bdsKho.Find("MAKHO", TT_Kho[0]);

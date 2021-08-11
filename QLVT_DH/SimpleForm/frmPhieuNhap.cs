@@ -64,7 +64,7 @@ namespace QLVT_DH.SimpleForm
             {
                 cmbChiNhanh.Enabled = true;  // bật tắt theo phân quyền
                 btnThem.Enabled = btnXoa.Enabled = btnGhi.Enabled = btnUndo.Enabled = btnSua.Enabled = false;
-                btnThemCTPN.Enabled = btnSuaCTPN.Enabled = btnXoaCTPN.Enabled = false;
+                ctmsThemCPN.Enabled = ctmsSuaCTPN.Enabled = ctmsXoaCTPN.Enabled = false;
                 gbInfoPN.Enabled = false;
             }
             else if (Program.mGroup == "CHINHANH" || Program.mGroup == "USER")
@@ -121,7 +121,7 @@ namespace QLVT_DH.SimpleForm
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             btnThem.Enabled = btnSua.Enabled = btnXoa.Enabled = btnUndo.Enabled = btnReload.Enabled = false;
-            btnThemCTPN.Enabled = btnSuaCTPN.Enabled = btnXoaCTPN.Enabled = false;
+            ctmsThemCPN.Enabled = ctmsSuaCTPN.Enabled = ctmsXoaCTPN.Enabled = false;
             txtMaPN.Enabled = btnBreak.Enabled = true;
 
             gbInfoPN.Enabled = btnGhi.Enabled = true;
@@ -149,7 +149,8 @@ namespace QLVT_DH.SimpleForm
                 this.phieuNhapableAdapter.Update(this.DS.PHIEUNHAP);
                 bdsPN.Position = position;
 
-                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = btnThemCTPN.Enabled = btnSuaCTPN.Enabled = btnXoaCTPN.Enabled = true;
+                btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = btnUndo.Enabled = true;
+                    ctmsThemCPN.Enabled = ctmsSuaCTPN.Enabled = ctmsXoaCTPN.Enabled = true;
                 gbInfoPN.Enabled = btnGhi.Enabled = btnBreak.Enabled = false;
                 gridPN.Enabled = true;
                 return;
@@ -175,7 +176,7 @@ namespace QLVT_DH.SimpleForm
 
                 if (Program.KetNoi() == 0) return;
                 String query = "DECLARE	@return_value int " +
-                               "EXEC @return_value = [dbo].[SP_CHECKID] " +
+                               "EXEC @return_value = [dbo].[SP_CHECKTRUNG] " +
                                "@p1, @p2 " +
                                "SELECT 'Return Value' = @return_value";
                 SqlCommand sqlCommand = new SqlCommand(query, Program.conn);
@@ -216,7 +217,8 @@ namespace QLVT_DH.SimpleForm
                         try
                         {
                             btnThem.Enabled = btnXoa.Enabled = gridPN.Enabled = gbInfoPN.Enabled = btnSua.Enabled = true;
-                            btnReload.Enabled = btnThoat.Enabled = btnThemCTPN.Enabled = btnSuaCTPN.Enabled = btnXoaCTPN.Enabled = true;
+                            btnReload.Enabled = btnThoat.Enabled = true;
+                                ctmsThemCPN.Enabled = ctmsSuaCTPN.Enabled = ctmsXoaCTPN.Enabled = true;
                             btnUndo.Enabled = true;
                             btnBreak.Enabled = false;
                             gbInfoPN.Enabled = false;
@@ -270,7 +272,7 @@ namespace QLVT_DH.SimpleForm
         {
             position = bdsPN.Position;
             txtMaPN.Enabled = false;
-            btnThemCTPN.Enabled = btnSuaCTPN.Enabled = btnXoaCTPN.Enabled = false;
+            ctmsThemCPN.Enabled = ctmsSuaCTPN.Enabled = ctmsXoaCTPN.Enabled = false;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = false;
             gbInfoPN.Enabled = btnGhi.Enabled = btnBreak.Enabled = true;
             gridPN.Enabled = false;
@@ -466,7 +468,7 @@ namespace QLVT_DH.SimpleForm
 
             bdsPN.Position = position;
             btnSua.Enabled = btnThem.Enabled = btnXoa.Enabled = btnReload.Enabled = true;
-            btnThemCTPN.Enabled = btnSuaCTPN.Enabled = btnXoaCTPN.Enabled = true;
+            ctmsThemCPN.Enabled = ctmsSuaCTPN.Enabled = ctmsXoaCTPN.Enabled = true;
             gbInfoPN.Enabled = btnBreak.Enabled = false;
             gridPN.Enabled = true;
         }
