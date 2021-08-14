@@ -148,6 +148,7 @@ namespace QLVT_DH.SimpleForm
                     {
                         try
                         {
+                            ((DataRowView)bdsVT[bdsVT.Position])["SOLUONGTON"] = int.Parse(numSL.Value.ToString());
                             //Program.flagCloseFormKho = true; //Bật cờ cho phép tắt Form NV
                             btnThem.Enabled = btnXoa.Enabled = gridVT.Enabled = gcInfoVT.Enabled = true;
                             btnReload.Enabled = btnGhi.Enabled = true;

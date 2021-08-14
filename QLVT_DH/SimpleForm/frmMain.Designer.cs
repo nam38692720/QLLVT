@@ -39,9 +39,7 @@
             this.barButtonItem_out = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_DSNV = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_DSVT = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_CTSLNX = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_DHCPN = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_HDNV = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_THNX = new DevExpress.XtraBars.BarButtonItem();
             this.btnLapPX = new DevExpress.XtraBars.BarButtonItem();
             this.btnPN = new DevExpress.XtraBars.BarButtonItem();
@@ -76,9 +74,7 @@
             this.barButtonItem_out,
             this.barButtonItem_DSNV,
             this.barButtonItem_DSVT,
-            this.barButtonItem_CTSLNX,
             this.barButtonItem_DHCPN,
-            this.barButtonItem_HDNV,
             this.barButtonItem_THNX,
             this.btnLapPX,
             this.btnPN});
@@ -164,14 +160,6 @@
             this.barButtonItem_DSVT.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem_DSVT.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_DSVT_ItemClick);
             // 
-            // barButtonItem_CTSLNX
-            // 
-            this.barButtonItem_CTSLNX.Caption = "Chi Tiết SL Nhập Xuất";
-            this.barButtonItem_CTSLNX.Id = 10;
-            this.barButtonItem_CTSLNX.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_CTSLNX.ImageOptions.SvgImage")));
-            this.barButtonItem_CTSLNX.Name = "barButtonItem_CTSLNX";
-            this.barButtonItem_CTSLNX.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
-            // 
             // barButtonItem_DHCPN
             // 
             this.barButtonItem_DHCPN.Caption = "Đơn ĐH Chưa Có Phiếu Nhập";
@@ -180,14 +168,6 @@
             this.barButtonItem_DHCPN.Name = "barButtonItem_DHCPN";
             this.barButtonItem_DHCPN.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             this.barButtonItem_DHCPN.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_DHCPN_ItemClick);
-            // 
-            // barButtonItem_HDNV
-            // 
-            this.barButtonItem_HDNV.Caption = "Hoạt Động Nhân Viên";
-            this.barButtonItem_HDNV.Id = 12;
-            this.barButtonItem_HDNV.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem_HDNV.ImageOptions.SvgImage")));
-            this.barButtonItem_HDNV.Name = "barButtonItem_HDNV";
-            this.barButtonItem_HDNV.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonItemStyles.Large;
             // 
             // barButtonItem_THNX
             // 
@@ -253,9 +233,7 @@
             // 
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem_DSNV);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem_DSVT);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem_CTSLNX);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem_DHCPN);
-            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem_HDNV);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem_THNX);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             // 
@@ -349,9 +327,7 @@
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_DSNV;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_DSVT;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem_CTSLNX;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_DHCPN;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem_HDNV;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_THNX;
         public System.Windows.Forms.Timer timer1;
         private DevExpress.XtraBars.BarButtonItem btnLapPX;

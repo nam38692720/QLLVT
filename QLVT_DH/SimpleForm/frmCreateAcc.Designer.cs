@@ -137,6 +137,7 @@
             // 
             this.txtRetype.Location = new System.Drawing.Point(222, 324);
             this.txtRetype.Name = "txtRetype";
+            this.txtRetype.PasswordChar = '*';
             this.txtRetype.Size = new System.Drawing.Size(147, 22);
             this.txtRetype.TabIndex = 20;
             this.txtRetype.Validating += new System.ComponentModel.CancelEventHandler(this.txtRetype_Validating);
@@ -145,6 +146,7 @@
             // 
             this.txtPassword.Location = new System.Drawing.Point(222, 261);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(147, 22);
             this.txtPassword.TabIndex = 19;
             this.txtPassword.Validating += new System.ComponentModel.CancelEventHandler(this.txtPassword_Validating);

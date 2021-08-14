@@ -69,16 +69,6 @@ namespace QLVT_DH
 
         private void btnLapPhieu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //Form form = this.CheckExists(typeof(frmLapPhieu));
-            //if (form != null) form.Activate();
-            //else
-            //{
-            //    Program.frmLapPhieu = new frmLapPhieu();
-            //    Program.frmLapPhieu.MdiParent = this;
-            //    Program.frmLapPhieu.Show();
-            //    Program.frmLapPhieu.btnSwitch.Links[0].Caption = "Đặt Hàng";
-            //}
-
             Form form = this.CheckExists(typeof(frmDonDatHang));
             if (form != null) form.Activate();
             else
@@ -86,11 +76,7 @@ namespace QLVT_DH
                 Program.frmDonDatHang = new frmDonDatHang();
                 Program.frmDonDatHang.MdiParent = this;
                 Program.frmDonDatHang.Show();
-                //Program.frmLapPhieu.btnSwitch.Links[0].Caption = "Đặt Hàng";
             }
-
-
-            
         }
 
         private void barButtonItem_DSVT_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

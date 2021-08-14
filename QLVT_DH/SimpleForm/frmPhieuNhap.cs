@@ -557,5 +557,19 @@ namespace QLVT_DH.SimpleForm
                 errorProvider1.SetError(txtMaKho, "");
             }
         }
+
+        private void btnReload_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            try
+            {
+                this.phieuNhapableAdapter.Update(this.DS.PHIEUNHAP);
+                this.cTPNTableAdapter.Update(this.DS.CTPN);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi Reload :" + ex.Message, "", MessageBoxButtons.OK);
+                return;
+            }
+        }
     }
 }

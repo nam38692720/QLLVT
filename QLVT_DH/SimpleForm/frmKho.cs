@@ -73,7 +73,7 @@ namespace QLVT_DH.SimpleForm
             btnUndo.Enabled = btnBreak.Enabled = false;
             gcInfoKho.Enabled = false;
             txtMaKho.Enabled = false;
-
+            txtMaCN.Enabled = false;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
